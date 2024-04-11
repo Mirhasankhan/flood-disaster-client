@@ -1,18 +1,19 @@
 import { Table } from "antd";
 import { useUsersQuery } from "../../redux/features/users/userManagement.api";
+import { DataItem } from "../../types";
 
 const DonorDetails = () => {
   const { data } = useUsersQuery("donor");
   console.log(data);
 
   const tableData = data?.map(
-    ({ _id, name, email, contactNo, supplyName, Category }) => ({
+    ({ _id, name, email, contactNo, supplyName, category }: DataItem) => ({
       key: _id,
       name,
       email,
       contactNo,
       supplyName,
-      Category,
+      category,
     })
   );
 

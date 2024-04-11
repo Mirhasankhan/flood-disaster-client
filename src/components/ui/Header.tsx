@@ -13,6 +13,7 @@ const Header = () => {
         <img className="h-16 rounded-full" src={logo} alt="" />
       </Link>
       <Link to="supplies">All Supplies</Link>
+      <Link to="testimonials">Testimonials</Link>
       {role ? (
         <div>
           <Link to={`/${role}/dashboard`}>

@@ -1,12 +1,13 @@
 import { Table } from "antd";
 import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
+import { DataItem } from "../../types";
 
 const DonationDetails = () => {
   const { data } = useSuppliesQuery("");
   console.log(data);
 
   const tableData = data?.map(
-    ({ _id, name, email, contactNo, supplyName, category }) => ({
+    ({ _id, name, email, contactNo, supplyName, category }: DataItem) => ({
       key: _id,
       name,
       email,

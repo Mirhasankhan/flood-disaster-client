@@ -1,11 +1,11 @@
 import { Button, Table } from "antd";
 import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
-
 import {
   useApproveApplyMutation,
   useDenyMutation,
 } from "../../redux/features/users/userManagement.api";
 import { useUpdateSupplyStatusMutation } from "../../redux/features/supply/supplyManagement.api";
+import { DataItem, RecordType } from "../../types";
 
 const MySupplies = () => {
   const { data } = useAppliesQuery("");
@@ -25,7 +25,15 @@ const MySupplies = () => {
   };
 
   const tableData = data?.map(
-    ({ _id, name, email, supplyName, category, referenceId, isApproved }) => ({
+    ({
+      _id,
+      name,
+      email,
+      supplyName,
+      category,
+      referenceId,
+      isApproved,
+    }: DataItem) => ({
       key: _id,
       name,
       email,
@@ -60,7 +68,7 @@ const MySupplies = () => {
     {
       title: "Action",
       key: "action",
-      render: (record) => (
+      render: (record: RecordType) => (
         <div>
           <Button
             disabled={record.isApproved}

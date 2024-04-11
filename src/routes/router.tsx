@@ -11,6 +11,7 @@ import Supplies from "../pages/supplies/Supplies";
 import SupplyDetails from "../pages/supplies/SupplyDetails";
 import { receipientPaths } from "./recipient.routes";
 import Home from "../pages/Home/Home";
+import Testimonials from "../pages/testimonials/Testimonials";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/supplies/:id",
         element: <SupplyDetails></SupplyDetails>,
+      },
+      {
+        path: "/testimonials",
+        element: <Testimonials></Testimonials>,
       },
     ],
   },

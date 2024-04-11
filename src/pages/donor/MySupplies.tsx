@@ -6,7 +6,7 @@ import {
 } from "../../redux/features/supply/supplyManagement.api";
 import { useAppSelector } from "../../redux/hooks";
 import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
-import { RecordType } from "../../types";
+import { DataItem, RecordType } from "../../types";
 
 const MySupplies = () => {
   const { email } = useAppSelector(useCurrentUser);
@@ -17,13 +17,14 @@ const MySupplies = () => {
   const handleDelete = (id: string) => {
     deleteSupply(id);
   };
+  console.log(data);
 
   const tableData = data?.map(
-    ({ _id, name, email, image, supplyName, category }) => ({
+    ({ _id, name, email, image, supplyName, category }: DataItem) => ({
       key: _id,
       name,
       email,
-      image: image.imageUrl,
+      image: image?.imageUrl,
       supplyName,
       category,
     })
@@ -70,7 +71,7 @@ const MySupplies = () => {
       key: "action",
       render: (record: RecordType) => {
         const removeObjectId = (idsArray) => {
-          return idsArray.map((id) =>
+          return idsArray.map((id: string) =>
             id.replace("ObjectId(", "").replace(")", "")
           );
         };

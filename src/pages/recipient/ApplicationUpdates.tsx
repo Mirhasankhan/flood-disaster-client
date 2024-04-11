@@ -11,7 +11,7 @@ const ApplicationUpdates = () => {
   const pendingData = data?.filter((pending) => pending.isApproved === false);
   const approvedData = data?.filter((approved) => approved.isApproved === true);
 
-  const onChange = (key: string) => {};
+  // const onChange = (key: string) => {};
 
   const items: TabsProps["items"] = [
     {
@@ -42,7 +42,7 @@ const ApplicationUpdates = () => {
       className="w-full"
       defaultActiveKey="1"
       items={items}
-      onChange={onChange}
+      // onChange={onChange}
     />
   );
 };

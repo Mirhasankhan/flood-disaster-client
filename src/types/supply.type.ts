@@ -25,6 +25,8 @@ export type RecordType = {
   supplyName: string;
   category: string;
   key: string;
+  isApproved?: boolean;
+  referenceId?: string;
 };
 
 export type DataItemType = {
@@ -35,4 +37,17 @@ export type DataItemType = {
   category: string;
   referenceId: string;
   isApproved: boolean;
+};
+
+export type DataItem = {
+  _id: string;
+  name: string;
+  email: string;
+  image?: { imageUrl: string };
+  supplyName: string;
+  category: string;
+  contactNo?: string;
+  referenceId?: string;
+  isApproved?: boolean;
+  // Add any other properties if necessary
 };
