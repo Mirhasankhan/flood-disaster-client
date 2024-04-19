@@ -7,14 +7,16 @@ import { useState } from "react";
 
 const Supplies = () => {
   const { data } = useSuppliesQuery("");
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
-  const handleSelectChange = (value) => {
+  const handleSelectChange = (value: string) => {
     setSelectedOption(value);
   };
 
   const filteredSupplies = selectedOption
-    ? data?.filter((supply) => supply.category === selectedOption)
+    ? data?.filter(
+        (supply: { category: string }) => supply.category === selectedOption
+      )
     : data;
 
   return (

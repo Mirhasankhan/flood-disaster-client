@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useSingleSupplyQuery } from "../../redux/features/supply/supplyManagement.api";
 import { Button, Modal } from "antd";
 import { useState } from "react";
+import { DataItem } from "../../types";
 
 const SupplyDetails = () => {
   const location = useLocation();
@@ -33,8 +34,8 @@ const SupplyDetails = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        {data?.map((detail) => (
-          <p>jll</p>
+        {data?.map((detail: DataItem) => (
+          <p>{detail._id}</p>
         ))}
       </Modal>
     </>

@@ -3,13 +3,18 @@ import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppSelector } from "../../redux/hooks";
 import { Tabs, TabsProps } from "antd";
 import ApplicationCard from "./ApplicationCard";
+import { TSupply } from "../../types";
 
 const ApplicationUpdates = () => {
   const { email } = useAppSelector(useCurrentUser);
 
   const { data } = useAppliesQuery(email);
-  const pendingData = data?.filter((pending) => pending.isApproved === false);
-  const approvedData = data?.filter((approved) => approved.isApproved === true);
+  const pendingData = data?.filter(
+    (pending: { isApproved: boolean }) => pending.isApproved === false
+  );
+  const approvedData = data?.filter(
+    (approved: { isApproved: boolean }) => approved.isApproved === true
+  );
 
   // const onChange = (key: string) => {};
 
@@ -19,7 +24,7 @@ const ApplicationUpdates = () => {
       label: "Pending Applications",
       children: (
         <div>
-          {pendingData?.map((p) => (
+          {pendingData?.map((p: TSupply) => (
             <ApplicationCard key={p._id} application={p}></ApplicationCard>
           ))}
         </div>
@@ -30,7 +35,7 @@ const ApplicationUpdates = () => {
       label: "Approved Applications",
       children: (
         <div>
-          {approvedData?.map((a) => (
+          {approvedData?.map((a: TSupply) => (
             <ApplicationCard key={a._id} application={a}></ApplicationCard>
           ))}
         </div>

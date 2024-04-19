@@ -70,13 +70,15 @@ const MySupplies = () => {
       title: "Action",
       key: "action",
       render: (record: RecordType) => {
-        const removeObjectId = (idsArray) => {
+        const removeObjectId = (idsArray: string[]) => {
           return idsArray.map((id: string) =>
             id.replace("ObjectId(", "").replace(")", "")
           );
         };
         const approvedReferenceIds =
-          applicationsData?.map((item) => item.referenceId) || [];
+          applicationsData?.map(
+            (item: { referenceId: string }) => item.referenceId
+          ) || [];
         const cleanedIds = removeObjectId(approvedReferenceIds);
 
         return (

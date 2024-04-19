@@ -8,6 +8,7 @@ import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAddApplyMutation } from "../../redux/features/recipient/recipientManagement.api";
 import { useUpdateSupplyStatusMutation } from "../../redux/features/supply/supplyManagement.api";
 import { TSupplyCardProps } from "../../types";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 
 const ApplySupply = ({ supply }: TSupplyCardProps) => {
   const [open, setOpen] = useState(false);
@@ -23,7 +24,7 @@ const ApplySupply = ({ supply }: TSupplyCardProps) => {
     setOpen(false);
   };
 
-  const onSubmit = (values) => {
+  const onSubmit: SubmitHandler<FieldValues> = (values) => {
     const newSupply = {
       ...values,
       isApproved: false,
@@ -35,14 +36,16 @@ const ApplySupply = ({ supply }: TSupplyCardProps) => {
 
   return (
     <>
-      <Button
-        disabled={role !== "recipient" || supply.isApplied == true}
-        className="bg-purple-400 h-10"
-        onClick={showDrawer}
-        icon={<PlusOutlined />}
-      >
-        {supply.isApplied == true ? "Already Applied" : "Apply Now"}
-      </Button>
+      {role == "recipient" && (
+        <Button
+          disabled={role !== "recipient" || supply.isApplied == true}
+          className="bg-purple-400 h-10"
+          onClick={showDrawer}
+          icon={<PlusOutlined />}
+        >
+          {supply.isApplied == true ? "Already Applied" : "Apply Now"}
+        </Button>
+      )}
       <Drawer
         title="Apply For This Supply"
         width={720}

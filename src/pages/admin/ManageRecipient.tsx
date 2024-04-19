@@ -81,7 +81,10 @@ const MySupplies = () => {
           <Button
             className={`${record.isApproved ? "hidden" : "block"}`}
             onClick={() =>
-              handleDeny(record.key, extractNumberValue(record.referenceId))
+              handleDeny(
+                record.key,
+                extractNumberValue(record.referenceId as string)
+              )
             }
           >
             Deny

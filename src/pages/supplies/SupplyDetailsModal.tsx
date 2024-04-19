@@ -1,7 +1,8 @@
 import { Button, Modal } from "antd";
 import { useState } from "react";
+import { TSupply } from "../../types";
 
-const SupplyDetailsModal = ({ supply }) => {
+const SupplyDetailsModal = ({ supply }: { supply: TSupply }) => {
   const { image, supplyName, contactNo, email, name, quantity, category } =
     supply;
   const [isModalOpen, setIsModalOpen] = useState(false);
