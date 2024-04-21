@@ -4,7 +4,6 @@ import { DataItem } from "../../types";
 
 const DonorDetails = () => {
   const { data } = useUsersQuery("donor");
-  console.log(data);
 
   const tableData = data?.map(
     ({ _id, name, email, contactNo, supplyName, category }: DataItem) => ({

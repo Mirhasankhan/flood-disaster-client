@@ -17,7 +17,6 @@ const MySupplies = () => {
   const handleDelete = (id: string) => {
     deleteSupply(id);
   };
-  console.log(data);
 
   const tableData = data?.map(
     ({ _id, name, email, image, supplyName, category }: DataItem) => ({

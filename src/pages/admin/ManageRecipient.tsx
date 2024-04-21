@@ -17,7 +17,6 @@ const MySupplies = () => {
     denyApplication(id);
     updateStatus({ id: referenceId, isApplied: false });
   };
-  console.log(data);
 
   const extractNumberValue = (objectIdString: string) => {
     const numberValue = objectIdString.split("(")[1].split(")")[0];

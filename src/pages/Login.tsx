@@ -13,7 +13,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     const res = await loginAccount(data).unwrap();
     dispatch(setUser({ email: res.email, role: res.role, token: res.token }));
     navigate("/");

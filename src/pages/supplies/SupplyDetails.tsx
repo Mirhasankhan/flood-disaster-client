@@ -8,7 +8,7 @@ const SupplyDetails = () => {
   const location = useLocation();
   const supplyId = location.state;
   const { data } = useSingleSupplyQuery(supplyId, { skip: !supplyId });
-  console.log(data);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {

@@ -6,7 +6,6 @@ const SupplyDetailsModal = ({ supply }: { supply: TSupply }) => {
   const { image, supplyName, contactNo, email, name, quantity, category } =
     supply;
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(supply);
 
   const showModal = () => {
     setIsModalOpen(true);
