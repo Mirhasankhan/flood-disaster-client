@@ -3,9 +3,12 @@ import { categories } from "../../constants/global";
 import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
 import { TSupply } from "../../types";
 import SupplyCard from "./SupplyCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Supplies = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { data } = useSuppliesQuery("");
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
@@ -13,22 +16,30 @@ const Supplies = () => {
     setSelectedOption(value);
   };
 
-  const filteredSupplies = selectedOption
-    ? data?.filter(
-        (supply: { category: string }) => supply.category === selectedOption
-      )
-    : data;
+  const filteredSupplies =
+    selectedOption && selectedOption !== "All"
+      ? data?.filter(
+          (supply: { category: string }) => supply.category === selectedOption
+        )
+      : data;
 
   return (
-    <div>
-      <div className="w-full mb-16 flex justify-end">
-        <Select
-          className="w-1/5"
-          onChange={handleSelectChange}
-          options={categories}
-        ></Select>
+    <div className="mx-12">
+      <div>
+        <div className="w-full my-12">
+          <h1 className="text-center font-semibold text-5xl">
+            Our All Supplies
+          </h1>
+          <label className="text-xl font-medium">*Filter By Category: </label>
+          <Select
+            defaultValue="filter"
+            className="w-1/5"
+            onChange={handleSelectChange}
+            options={categories}
+          ></Select>
+        </div>
       </div>
-      <div className="grid grid-cols-4 mx-12 gap-5">
+      <div className="grid grid-cols-4  gap-5">
         {filteredSupplies?.map((supply: TSupply) => (
           <SupplyCard supply={supply} key={supply._id}></SupplyCard>
         ))}

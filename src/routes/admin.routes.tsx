@@ -1,6 +1,5 @@
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import DonationDetails from "../pages/admin/DonationDetails";
-import DonorDetails from "../pages/admin/DonorDetails";
 import ManageRecipient from "../pages/admin/ManageRecipient";
 
 export const adminPaths = [
@@ -32,11 +31,11 @@ export const adminPaths = [
         path: "donation-details",
         element: <DonationDetails></DonationDetails>,
       },
-      {
-        name: "Manage Donor",
-        path: "manage-donor",
-        element: <DonorDetails></DonorDetails>,
-      },
+      // {
+      //   name: "Manage Donor",
+      //   path: "manage-donor",
+      //   element: <DonorDetails></DonorDetails>,
+      // },
       {
         name: "Manage Recipient",
         path: "manage-recipient",

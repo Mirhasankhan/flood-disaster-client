@@ -68,7 +68,7 @@ const MySupplies = () => {
       title: "Action",
       key: "action",
       render: (record: RecordType) => (
-        <div>
+        <div className="flex gap-4">
           <Button
             disabled={record.isApproved}
             onClick={() =>

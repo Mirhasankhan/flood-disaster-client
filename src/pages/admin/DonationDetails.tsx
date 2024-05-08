@@ -18,20 +18,16 @@ const DonationDetails = () => {
 
   const columns = [
     {
-      title: "Name",
+      title: "Donor Name",
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "Email",
+      title: "Donor Email",
       dataIndex: "email",
       key: "email",
     },
-    {
-      title: "Contact No",
-      dataIndex: "contactNo",
-      key: "contactNo",
-    },
+
     {
       title: "Supply Name",
       dataIndex: "supplyName",

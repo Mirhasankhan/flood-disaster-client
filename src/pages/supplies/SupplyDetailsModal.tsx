@@ -47,8 +47,9 @@ const SupplyDetailsModal = ({ supply }: { supply: TSupply }) => {
             <p className="font-semibold p-3">Donor Name: {name}</p>
             <p className="font-semibold p-3">Donor Email: {email}</p>
             <p className="font-semibold p-3">Contact No: {contactNo}</p>
-            <p className="font-semibold p-3">Available Quantity: {quantity}</p>
+            <p className="font-semibold p-3">Amount: ${quantity}</p>
           </div>
+          <Button>Donate Now</Button>
         </div>
       </Modal>
     </div>

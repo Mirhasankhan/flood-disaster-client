@@ -11,53 +11,75 @@ const Register = () => {
   const [registerAccount] = useRegisterMutation();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
     registerAccount(data);
   };
 
   return (
-    <div className="border border-gray-800 p-4 w-1/3 mx-auto mt-6">
-      <Row justify="center">
-        <Col span={24}>
-          <PHForm onSubmit={onSubmit}>
-            <h1 className="text-3xl font-semibold text-center py-4">
-              Register New Account
-            </h1>
-            <Row gutter={8}>
-              <Col span={24} md={{ span: 12 }} lg={{ span: 24 }}>
-                <PHInput type="text" name="name" label="Name" />
-              </Col>
-            </Row>
-            <Row gutter={8}>
-              <Col span={24}>
-                <PHInput type="email" name="email" label="Email" />
-              </Col>
-            </Row>
-            <Row gutter={8}>
-              <Col span={24}>
-                <PHInput type="password" name="password" label="Password" />
-              </Col>
-            </Row>
-            <Row gutter={8}>
-              <Col span={24}>
-                <PHSelect
-                  label="Select Role"
-                  name="role"
-                  options={roles}
-                ></PHSelect>
-              </Col>
-            </Row>
-            <h1>
-              Already have an account?{" "}
-              <Link to="/login" className="text-blue-600">
-                Login
-              </Link>
-            </h1>
-            <Button className="w-full bg-red-300" htmlType="submit">
-              Submit
-            </Button>
-          </PHForm>
-        </Col>
-      </Row>
+    <div>
+      <h1 className="text-3xl font-semibold text-center py-4">
+        Register <span className="text-green-400">New Account</span>
+      </h1>
+      <div className="shadow-xl rounded-lg p-4 w-1/2 md:w-1/3 mx-auto mt-6">
+        <Row justify="center">
+          <Col span={24}>
+            <PHForm onSubmit={onSubmit}>
+              <Row gutter={8}>
+                <Col span={24} md={{ span: 12 }} lg={{ span: 24 }}>
+                  <PHInput
+                    placeholder="name"
+                    type="text"
+                    name="name"
+                    label="Name"
+                  />
+                </Col>
+              </Row>
+              <Row gutter={8}>
+                <Col span={24}>
+                  <PHInput
+                    placeholder="email"
+                    type="email"
+                    name="email"
+                    label="Email"
+                  />
+                </Col>
+              </Row>
+              <Row gutter={8}>
+                <Col span={24}>
+                  <PHInput
+                    placeholder="password"
+                    type="password"
+                    name="password"
+                    label="Password"
+                  />
+                </Col>
+              </Row>
+              <Row gutter={8}>
+                <Col span={24}>
+                  <PHSelect
+                    label="Select Role"
+                    name="role"
+                    options={roles}
+                  ></PHSelect>
+                </Col>
+              </Row>
+
+              <Button
+                className="w-full bg-green-300 text-white font-semibold"
+                htmlType="submit"
+              >
+                Register
+              </Button>
+              <h1 className="pt-3">
+                Already have an account?{" "}
+                <Link to="/login" className="text-blue-600">
+                  Login
+                </Link>
+              </h1>
+            </PHForm>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 };

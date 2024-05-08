@@ -8,6 +8,7 @@ type TInputProps = {
   disabled?: boolean;
   defaultValue?: object | null | string;
   readOnly?: boolean;
+  placeholder?: string;
 };
 
 const PHInput = ({
@@ -17,6 +18,7 @@ const PHInput = ({
   disabled,
   defaultValue,
   readOnly,
+  placeholder,
 }: TInputProps) => {
   return (
     <div style={{ marginBottom: "20px" }}>
@@ -33,6 +35,7 @@ const PHInput = ({
               disabled={disabled}
               required
               readOnly={readOnly}
+              placeholder={placeholder}
             />
           </Form.Item>
         )}

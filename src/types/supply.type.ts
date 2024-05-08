@@ -4,9 +4,11 @@ export type TSupply = {
   email: string;
   contactNo: string;
   supplyName: string;
+  donorEmail?: string;
   quantity: string;
   category: string;
   image: Image;
+  isApproved?: boolean;
   isApplied: boolean;
 };
 

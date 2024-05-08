@@ -9,7 +9,7 @@ const Supply = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-3 mx-12 gap-6 mt-6">
+      <div className="grid grid-cols-3 mx-12 gap-8 mt-6">
         {data?.slice(0, 6).map((supply: TSupply) => (
           <Card supply={supply} key={supply._id}></Card>
         ))}

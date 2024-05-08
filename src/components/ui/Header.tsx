@@ -12,18 +12,40 @@ const Header = () => {
       <Link to="/">
         <img className="h-16 rounded-full" src={logo} alt="" />
       </Link>
-      <Link to="supplies">All Supplies</Link>
-      <Link to="testimonials">Testimonials</Link>
+      <div className="flex gap-4">
+        <Link
+          to="supplies"
+          className="hover:bg-gray-500 p-2 rounded-md font-semibold"
+        >
+          All Supplies
+        </Link>
+        <Link
+          to="/community"
+          className="hover:bg-gray-500 p-2 rounded-md font-semibold"
+        >
+          Community
+        </Link>
+      </div>
+      {/* <Link to="testimonials">Testimonials</Link> */}
       {role ? (
-        <div>
+        <div className="flex gap-4">
           <Link to={`/${role}/dashboard`}>
-            <Button className="text-white">Dashboard</Button>
+            <Button className="text-white font-semibold bg-green-300">
+              Dashboard
+            </Button>
           </Link>
-          <Button onClick={() => dispatch(logOut())}>Logout</Button>
+          <Button
+            className="text-white font-semibold bg-red-300"
+            onClick={() => dispatch(logOut())}
+          >
+            Logout
+          </Button>
         </div>
       ) : (
         <Link to="/login">
-          <Button>Login</Button>
+          <Button className="text-white font-semibold bg-blue-600">
+            Login
+          </Button>
         </Link>
       )}
     </div>

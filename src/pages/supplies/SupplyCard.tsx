@@ -6,7 +6,7 @@ const SupplyCard = ({ supply }: TSupplyCardProps) => {
   const { supplyName, quantity, image, category } = supply;
 
   return (
-    <div className="border overflow-hidden rounded-md">
+    <div className="shadow-md border overflow-hidden rounded-md">
       <img
         className="w-full h-60 hover:scale-110 transition-transform duration-300"
         src={image.imageUrl}
@@ -14,7 +14,7 @@ const SupplyCard = ({ supply }: TSupplyCardProps) => {
       />
       <h1 className="pl-3 pt-3 font-bold">{supplyName}</h1>
       <div className="flex justify-between p-3">
-        <p>Quantity: {quantity}</p>
+        <p>Amount: ${quantity}</p>
         <p>Category: {category}</p>
       </div>
       <div className="p-3 flex justify-between">
