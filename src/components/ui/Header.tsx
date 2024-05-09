@@ -35,7 +35,7 @@ const Header = () => {
             </Button>
           </Link>
           <Button
-            className="text-white font-semibold bg-red-300"
+            className="text-white font-semibold bg-red-300 hidden"
             onClick={() => dispatch(logOut())}
           >
             Logout
