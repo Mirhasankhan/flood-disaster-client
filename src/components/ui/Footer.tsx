@@ -8,14 +8,14 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4 mt-12">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-center md:text-left">
+    <footer className="bg-gray-800 text-white py-4 mt-12 px-6">
+      <div className="container mx-auto  md:flex justify-between items-center">
+        <div className="text-left">
           <div className="flex gap-2 items-center my-3">
             <img className="h-8 rounded-full" src={badge} alt="" />
             <p>Flood Donation.</p>
           </div>
-          <p className="text-sm">&copy; 2024 All rights reserved.</p>
+          <p className="text-sm pb-3">&copy; 2024 All rights reserved.</p>
         </div>
         <div>
           <div className="flex gap-6 text-3xl mb-4">
@@ -25,7 +25,7 @@ const Footer = () => {
             <InstagramFilled></InstagramFilled>
           </div>
           <div className="text-center md:text-right">
-            <ul className="flex justify-center md:justify-end space-x-4">
+            <ul className="flex justify-left md:justify-end space-x-4">
               <li>
                 <a href="#" className="text-sm">
                   Privacy Policy

@@ -14,7 +14,7 @@ const DashboardLayout = () => {
           <div
             style={{
               padding: 24,
-              minHeight: 360,
+              minHeight: 650,
             }}
           >
             <Outlet></Outlet>

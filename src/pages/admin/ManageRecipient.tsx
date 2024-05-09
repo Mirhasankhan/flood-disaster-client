@@ -1,13 +1,13 @@
-import { Button, Table } from "antd";
+import { Button } from "antd";
 import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
+import { useUpdateSupplyStatusMutation } from "../../redux/features/supply/supplyManagement.api";
 import {
   useApproveApplyMutation,
   useDenyMutation,
 } from "../../redux/features/users/userManagement.api";
-import { useUpdateSupplyStatusMutation } from "../../redux/features/supply/supplyManagement.api";
-import { DataItem, RecordType } from "../../types";
+import { DataItem } from "../../types";
 
-const MySupplies = () => {
+const ManageRecipient2 = () => {
   const { data } = useAppliesQuery("");
   const [denyApplication] = useDenyMutation();
   const [updateStatus] = useUpdateSupplyStatusMutation();
@@ -22,82 +22,60 @@ const MySupplies = () => {
     const numberValue = objectIdString.split("(")[1].split(")")[0];
     return numberValue;
   };
-
-  const tableData = data?.map(
-    ({
-      _id,
-      name,
-      email,
-      supplyName,
-      category,
-      referenceId,
-      isApproved,
-    }: DataItem) => ({
-      key: _id,
-      name,
-      email,
-      supplyName,
-      category,
-      referenceId,
-      isApproved,
-    })
-  );
-
-  const columns = [
-    {
-      title: "Recipient Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Recipient Email",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "Supply Name",
-      dataIndex: "supplyName",
-      key: "supplyName",
-    },
-    {
-      title: "Category",
-      dataIndex: "category",
-      key: "category",
-    },
-    {
-      title: "Action",
-      key: "action",
-      render: (record: RecordType) => (
-        <div className="flex gap-4">
-          <Button
-            disabled={record.isApproved}
-            onClick={() =>
-              approveApplication({ id: record.key, isApproved: true })
-            }
-          >
-            {record.isApproved ? "Approved" : "Approve"}
-          </Button>
-          <Button
-            className={`${record.isApproved ? "hidden" : "block"}`}
-            onClick={() =>
-              handleDeny(
-                record.key,
-                extractNumberValue(record.referenceId as string)
-              )
-            }
-          >
-            Deny
-          </Button>
-        </div>
-      ),
-    },
-  ];
-
   return (
     <div>
-      <Table dataSource={tableData} columns={columns} />
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead className="bg-gray-600 text-white">
+            <tr>
+              <th>Recipient Name</th>
+              <th>Recipient Email</th>
+              <th>Supply Name</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data?.map((recepient: DataItem) => (
+              <tr key={recepient._id} className="bg-white">
+                <th>{recepient.name}</th>
+                <th>{recepient.email}</th>
+                <th>{recepient.supplyName}</th>
+                <th>{recepient.category}</th>
+                <th>
+                  <div className="flex gap-4">
+                    <Button
+                      disabled={recepient.isApproved}
+                      onClick={() =>
+                        approveApplication({
+                          id: recepient._id,
+                          isApproved: true,
+                        })
+                      }
+                    >
+                      {recepient.isApproved ? "Approved" : "Approve"}
+                    </Button>
+                    <Button
+                      className={`${recepient.isApproved ? "hidden" : "block"}`}
+                      onClick={() =>
+                        handleDeny(
+                          recepient._id,
+                          extractNumberValue(recepient.referenceId as string)
+                        )
+                      }
+                    >
+                      Deny
+                    </Button>
+                  </div>
+                </th>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
-export default MySupplies;
+export default ManageRecipient2;

@@ -21,7 +21,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-semibold text-center py-4 my-6">
+      <h1 className="text-xl md:text-3xl font-semibold text-center py-4 my-6">
         Log Into <span className="text-green-200">Your Account</span>
       </h1>
       <div className="flex gap-6 w-3/4 mx-auto items-center">

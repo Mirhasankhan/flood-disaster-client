@@ -44,7 +44,7 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div>
+    <div className="w-[100%]">
       <BarChart
         width={700}
         height={300}

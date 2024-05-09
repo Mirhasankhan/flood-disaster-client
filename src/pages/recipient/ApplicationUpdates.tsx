@@ -23,7 +23,7 @@ const ApplicationUpdates = () => {
       key: "1",
       label: "Pending Applications",
       children: (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-6">
           {pendingData?.map((p: TSupply) => (
             <ApplicationCard key={p._id} application={p}></ApplicationCard>
           ))}
@@ -34,7 +34,7 @@ const ApplicationUpdates = () => {
       key: "2",
       label: "Approved Applications",
       children: (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {approvedData?.map((a: TSupply) => (
             <ApplicationCard key={a._id} application={a}></ApplicationCard>
           ))}

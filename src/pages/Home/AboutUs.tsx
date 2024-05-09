@@ -3,7 +3,7 @@ import aboutPic from "../../assets/images/aboutUs.avif";
 
 const AboutUs = () => {
   return (
-    <div className="grid grid-cols-2 gap-8 mx-12 pt-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-6 md:mx-12 pt-8">
       <div>
         <p className="text-xl">About Us</p>
         <h1 className="text-3xl font-bold py-2">

@@ -17,7 +17,7 @@ const SupplyCard = ({ supply }: TSupplyCardProps) => {
         <p>Amount: ${quantity}</p>
         <p>Category: {category}</p>
       </div>
-      <div className="p-3 flex justify-between">
+      <div className="p-3 flex gap-2 justify-between">
         <SupplyDetailsModal supply={supply}></SupplyDetailsModal>
         <ApplySupply supply={supply}></ApplySupply>
       </div>

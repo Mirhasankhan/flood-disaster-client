@@ -31,11 +31,7 @@ export const adminPaths = [
         path: "donation-details",
         element: <DonationDetails></DonationDetails>,
       },
-      // {
-      //   name: "Manage Donor",
-      //   path: "manage-donor",
-      //   element: <DonorDetails></DonorDetails>,
-      // },
+
       {
         name: "Manage Recipient",
         path: "manage-recipient",

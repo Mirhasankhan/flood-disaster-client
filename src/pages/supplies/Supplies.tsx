@@ -24,13 +24,15 @@ const Supplies = () => {
       : data;
 
   return (
-    <div className="mx-12">
+    <div className="mx-6 md:mx-12">
       <div>
         <div className="w-full my-12">
-          <h1 className="text-center font-semibold text-5xl">
+          <h1 className="text-center font-semibold text-3xl md:text-5xl py-5">
             Our All Supplies
           </h1>
-          <label className="text-xl font-medium">*Filter By Category: </label>
+          <label className="text-sm md:text-xl font-medium">
+            *Filter By Category:{" "}
+          </label>
           <Select
             defaultValue="filter"
             className="w-1/5"
@@ -39,7 +41,7 @@ const Supplies = () => {
           ></Select>
         </div>
       </div>
-      <div className="grid grid-cols-4  gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5">
         {filteredSupplies?.map((supply: TSupply) => (
           <SupplyCard supply={supply} key={supply._id}></SupplyCard>
         ))}
