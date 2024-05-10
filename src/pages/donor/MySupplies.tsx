@@ -31,6 +31,10 @@ const MySupplies2 = () => {
     deleteSupply(id);
   };
 
+  const handleEdit = (id: string) => {
+    console.log(id);
+  };
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -63,9 +67,14 @@ const MySupplies2 = () => {
                   {cleanedIds.includes(supply._id) ? (
                     <Button>Supply In-Progress</Button>
                   ) : (
-                    <Button onClick={() => handleDelete(supply._id)}>
-                      Delete
-                    </Button>
+                    <div className="flex gap-2">
+                      <Button onClick={() => handleDelete(supply._id)}>
+                        Delete
+                      </Button>
+                      <Button onClick={() => handleEdit(supply._id)}>
+                        Edit
+                      </Button>
+                    </div>
                   )}
                 </td>
               </tr>

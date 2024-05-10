@@ -12,6 +12,7 @@ import SupplyDetails from "../pages/supplies/SupplyDetails";
 import { receipientPaths } from "./recipient.routes";
 import Home from "../pages/Home/Home";
 import Testimonials from "../pages/testimonials/Testimonials";
+import LeaderBoard from "../pages/LeaderBoard";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/testimonials",
         element: <Testimonials></Testimonials>,
+      },
+      {
+        path: "/leaderboard",
+        element: <LeaderBoard></LeaderBoard>,
       },
     ],
   },

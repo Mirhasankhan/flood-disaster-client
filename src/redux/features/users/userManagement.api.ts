@@ -8,6 +8,12 @@ const usersApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    leaderboard: builder.query({
+      query: () => ({
+        url: `/leaderboard`,
+        method: "GET",
+      }),
+    }),
     deny: builder.mutation({
       query: (id) => ({
         url: `/deny/${id}`,
@@ -25,5 +31,9 @@ const usersApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useUsersQuery, useDenyMutation, useApproveApplyMutation } =
-  usersApi;
+export const {
+  useLeaderboardQuery,
+  useUsersQuery,
+  useDenyMutation,
+  useApproveApplyMutation,
+} = usersApi;
