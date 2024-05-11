@@ -13,7 +13,7 @@ const Card = ({ supply }: TSupplyCardProps) => {
       />
       <h1 className="pl-3 pt-3 font-bold">{supplyName}</h1>
       <div className="flex justify-between p-3">
-        <p>Amount: ${amount}</p>
+        <p className="text-red-500">${amount}</p>
         <p>Category: {category}</p>
       </div>
       <div className="p-3">

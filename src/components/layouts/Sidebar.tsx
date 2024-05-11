@@ -47,7 +47,7 @@ const Sidebar = () => {
         }}
       >
         <Link to="/">
-          <h1>Flood Charity</h1>
+          <h1 className="font-semibold">FloodCare </h1>
         </Link>
       </div>
       <Menu

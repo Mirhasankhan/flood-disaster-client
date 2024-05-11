@@ -42,7 +42,7 @@ const ApplicationUpdates = () => {
       children: (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {approvedData && approvedData.length > 0 ? (
-            pendingData.map((p: TSupply) => (
+            approvedData.map((p: TSupply) => (
               <ApplicationCard key={p._id} application={p}></ApplicationCard>
             ))
           ) : (

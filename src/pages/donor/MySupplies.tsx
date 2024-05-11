@@ -34,9 +34,9 @@ const MySupplies2 = () => {
     toast.success("Supply Deleted");
   };
 
-  const handleEdit = (id: string) => {
-    console.log(id);
-  };
+  // const handleEdit = (id: string) => {
+  //   console.log(id);
+  // };
 
   return (
     <div>
@@ -75,9 +75,7 @@ const MySupplies2 = () => {
                         <Button onClick={() => handleDelete(supply._id)}>
                           Delete
                         </Button>
-                        <Button onClick={() => handleEdit(supply._id)}>
-                          Edit
-                        </Button>
+                        <Button>Edit</Button>
                       </div>
                     )}
                   </td>

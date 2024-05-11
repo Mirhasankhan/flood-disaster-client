@@ -1,31 +1,34 @@
 import { Button } from "antd";
-import bannerPic from "../../assets/images/banner.webp";
+import bannerPic from "../../assets/images/g4.avif";
+import bannerPic2 from "../../assets/images/g11.avif";
 
 const Banner = () => {
-  const divStyle = {
-    backgroundImage: `url(${bannerPic})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width: "100%",
-    height: "500px", // Adjust height as needed
-  };
-
   return (
-    <div>
-      <div
-        style={divStyle}
-        className="flex justify-center flex-col items-center px-12"
-      >
-        <h1 className="text-5xl font-semibold text-center text-gray-700">
-          Building a Hunger-Free Future: Transforming Food Distribution for Good
-        </h1>
-        <p className="text-2xl">
-          Empowering Communities Through Efficient Food Distribution: Our
-          platform is dedicated to revolutionizing the way food reaches those in
-          need. Join us in our mission to ensure no one goes hungry. Together,
-          we can make a difference.
-        </p>
-        <Button className="bg-yellow-400 my-4">Explore More</Button>
+    <div
+      className="bg-cover bg-center "
+      style={{ backgroundImage: `url(${bannerPic})`, height: "550px" }}
+    >
+      <div className="px-6 md:px-12 md:grid grid-cols-2 gap-6 items-center bg-opacity-50 bg-black h-full">
+        <div className="flex justify-center flex-col items-center  ">
+          <div className="">
+            <h1 className="italic mb-2 text-xl md:text-6xl font-semibold text-left text-white">
+              Building a Hunger <br /> Free Future
+            </h1>
+            <p className=" md:text-2xl  text-white">
+              Empowering Communities Through Efficient Relief Distribution. Our
+              platform is dedicated to revolutionizing the way food reaches
+              those in need.
+            </p>
+            <Button className="bg-yellow-400 my-4">Explore More</Button>
+          </div>
+        </div>
+        <div>
+          <img
+            className="w-full h-[300px] md:h-[400px] rounded-lg"
+            src={bannerPic2}
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );

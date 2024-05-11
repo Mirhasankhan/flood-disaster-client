@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="text-left">
           <div className="flex gap-2 items-center my-3">
             <img className="h-8 rounded-full" src={badge} alt="" />
-            <p>Flood Donation.</p>
+            <p>FloodCare </p>
           </div>
           <p className="text-sm pb-3">&copy; 2024 All rights reserved.</p>
         </div>

@@ -5,14 +5,23 @@ import PHForm from "../components/form/PHForm";
 import PHInput from "../components/form/PHInput";
 import PHSelect from "../components/form/PHSelect";
 import { roles } from "../constants/global";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Register = () => {
   const [registerAccount] = useRegisterMutation();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    if (data.role == null) {
+      toast.error(
+        "Account Not Created! Please select a role to create account"
+      );
+      return;
+    }
     registerAccount(data);
+    toast.success("Account Registered Successfully");
+    navigate("/login");
   };
 
   return (

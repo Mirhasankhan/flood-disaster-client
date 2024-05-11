@@ -19,7 +19,6 @@ const Supplies = () => {
   const unApproved = data.filter(
     (a: { isApproved: boolean }) => a.isApproved == false
   );
-  console.log(unApproved);
 
   const filteredSupplies =
     selectedOption && selectedOption !== "All"
@@ -46,7 +45,7 @@ const Supplies = () => {
           ></Select>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5  gap-5">
         {filteredSupplies?.map((supply: TSupply) => (
           <SupplyCard supply={supply} key={supply._id}></SupplyCard>
         ))}

@@ -2,7 +2,7 @@ import { TSupply } from "../../types";
 
 const ApplicationCard = ({ application }: { application: TSupply }) => {
   const { supplyName, category, donorEmail, isApproved } = application;
-  console.log(application);
+
   return (
     <div className="border bg-white shadow-md rounded-md overflow-hidden">
       <div className="flex justify-between px-3">
