@@ -23,10 +23,16 @@ const ApplicationUpdates = () => {
       key: "1",
       label: "Pending Applications",
       children: (
-        <div className="grid grid-cols-1 md:grid-cols-3  gap-6">
-          {pendingData?.map((p: TSupply) => (
-            <ApplicationCard key={p._id} application={p}></ApplicationCard>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {pendingData && pendingData.length > 0 ? (
+            pendingData.map((p: TSupply) => (
+              <ApplicationCard key={p._id} application={p}></ApplicationCard>
+            ))
+          ) : (
+            <div className="text-xl font-semibold text-red-500">
+              No Pending Applications Found.
+            </div>
+          )}
         </div>
       ),
     },
@@ -35,9 +41,15 @@ const ApplicationUpdates = () => {
       label: "Approved Applications",
       children: (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {approvedData?.map((a: TSupply) => (
-            <ApplicationCard key={a._id} application={a}></ApplicationCard>
-          ))}
+          {approvedData && approvedData.length > 0 ? (
+            pendingData.map((p: TSupply) => (
+              <ApplicationCard key={p._id} application={p}></ApplicationCard>
+            ))
+          ) : (
+            <div className="text-xl font-semibold text-red-500">
+              No Approved Applications Found.
+            </div>
+          )}
         </div>
       ),
     },

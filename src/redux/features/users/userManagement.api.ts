@@ -21,8 +21,8 @@ const usersApi = baseApi.injectEndpoints({
       }),
     }),
     approveApply: builder.mutation({
-      query: ({ id, isApproved }) => ({
-        url: `/approve/${id}`,
+      query: ({ id1, id2, isApproved }) => ({
+        url: `/approve/${id1}/${id2}`,
         method: "PUT",
         body: { isApproved },
       }),

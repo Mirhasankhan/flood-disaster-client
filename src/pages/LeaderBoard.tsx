@@ -8,7 +8,7 @@ const LeaderBoard = () => {
       <h1 className="text-center text-2xl font-semibold py-6 md:text-4xl">
         Leader Board
       </h1>
-      <div className="w-2/3 mx-auto">
+      <div className="w-4/5 md:w-2/3 mx-auto">
         <div className="overflow-x-auto">
           <table className="table">
             <thead className="bg-gray-600 text-white">

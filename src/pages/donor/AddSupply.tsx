@@ -8,6 +8,7 @@ import PHSelect from "../../components/form/PHSelect";
 import { categories } from "../../constants/global";
 import { useAddSupplyMutation } from "../../redux/features/supply/supplyManagement.api";
 import axios from "axios";
+import { toast } from "sonner";
 
 const AddSupply = () => {
   const { email } = useAppSelector(useCurrentUser);
@@ -33,9 +34,11 @@ const AddSupply = () => {
           imageUrl: imgUrl,
         },
         isApplied: false,
+        isApproved: false,
       };
 
       newSupply(modifiedData);
+      toast.success("Supply Added Successfully");
     } catch (error) {
       console.error("Error uploading image:", error);
     }
@@ -75,7 +78,7 @@ const AddSupply = () => {
               <PHInput type="text" name="supplyName" label="Supply Name" />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-              <PHInput type="text" name="quantity" label="Quantity" />
+              <PHInput type="text" name="amount" label="Amount" />
             </Col>
 
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>

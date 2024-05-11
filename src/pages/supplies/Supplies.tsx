@@ -16,12 +16,17 @@ const Supplies = () => {
     setSelectedOption(value);
   };
 
+  const unApproved = data.filter(
+    (a: { isApproved: boolean }) => a.isApproved == false
+  );
+  console.log(unApproved);
+
   const filteredSupplies =
     selectedOption && selectedOption !== "All"
-      ? data?.filter(
+      ? unApproved?.filter(
           (supply: { category: string }) => supply.category === selectedOption
         )
-      : data;
+      : unApproved;
 
   return (
     <div className="mx-6 md:mx-12">

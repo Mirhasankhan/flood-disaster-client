@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TSupply } from "../../types";
 
 const SupplyDetailsModal = ({ supply }: { supply: TSupply }) => {
-  const { image, supplyName, contactNo, email, name, quantity, category } =
+  const { image, supplyName, contactNo, email, name, amount, category } =
     supply;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -47,7 +47,7 @@ const SupplyDetailsModal = ({ supply }: { supply: TSupply }) => {
             <p className="font-semibold p-3">Donor Name: {name}</p>
             <p className="font-semibold p-3">Donor Email: {email}</p>
             <p className="font-semibold p-3">Contact No: {contactNo}</p>
-            <p className="font-semibold p-3">Amount: ${quantity}</p>
+            <p className="font-semibold p-3">Amount: ${amount}</p>
           </div>
           <Button>Donate Now</Button>
         </div>

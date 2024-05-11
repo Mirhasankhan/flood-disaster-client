@@ -5,7 +5,7 @@ export type TSupply = {
   contactNo: string;
   supplyName: string;
   donorEmail?: string;
-  quantity: string;
+  amount: string;
   category: string;
   image: Image;
   isApproved?: boolean;

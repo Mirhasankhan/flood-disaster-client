@@ -9,6 +9,7 @@ import { useAddApplyMutation } from "../../redux/features/recipient/recipientMan
 import { useUpdateSupplyStatusMutation } from "../../redux/features/supply/supplyManagement.api";
 import { TSupplyCardProps } from "../../types";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import { toast } from "sonner";
 
 const ApplySupply = ({ supply }: TSupplyCardProps) => {
   const [open, setOpen] = useState(false);
@@ -32,6 +33,8 @@ const ApplySupply = ({ supply }: TSupplyCardProps) => {
     };
     addApplication(newSupply);
     updateStatus({ id: supply._id, isApplied: true });
+    onClose();
+    toast.success("Applied Successfully!");
   };
 
   return (

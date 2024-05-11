@@ -7,6 +7,7 @@ import PHForm from "../components/form/PHForm";
 import PHInput from "../components/form/PHInput";
 import { Link, useNavigate } from "react-router-dom";
 import imgs from "../assets/images/login (1).webp";
+import { toast } from "sonner";
 
 const Login = () => {
   const [loginAccount] = useLoginMutation();
@@ -14,9 +15,14 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const res = await loginAccount(data).unwrap();
-    dispatch(setUser({ email: res.email, role: res.role, token: res.token }));
-    navigate("/");
+    try {
+      const res = await loginAccount(data).unwrap();
+      dispatch(setUser({ email: res.email, role: res.role, token: res.token }));
+      toast.success("Logged In Successfully!");
+      navigate("/");
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
   };
 
   return (

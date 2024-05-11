@@ -2,7 +2,7 @@ import { TSupplyCardProps } from "../../types";
 import SupplyDetailsModal from "../supplies/SupplyDetailsModal";
 
 const Card = ({ supply }: TSupplyCardProps) => {
-  const { supplyName, quantity, image, category } = supply;
+  const { supplyName, amount, image, category } = supply;
 
   return (
     <div className="border shadow-md rounded-md overflow-hidden">
@@ -13,7 +13,7 @@ const Card = ({ supply }: TSupplyCardProps) => {
       />
       <h1 className="pl-3 pt-3 font-bold">{supplyName}</h1>
       <div className="flex justify-between p-3">
-        <p>Amount: ${quantity}</p>
+        <p>Amount: ${amount}</p>
         <p>Category: {category}</p>
       </div>
       <div className="p-3">

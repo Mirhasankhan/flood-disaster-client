@@ -6,6 +6,7 @@ import {
   useDenyMutation,
 } from "../../redux/features/users/userManagement.api";
 import { DataItem } from "../../types";
+import { toast } from "sonner";
 
 const ManageRecipient2 = () => {
   const { data } = useAppliesQuery("");
@@ -47,23 +48,28 @@ const ManageRecipient2 = () => {
                   <div className="flex gap-4">
                     <Button
                       disabled={recepient.isApproved}
-                      onClick={() =>
+                      onClick={() => {
                         approveApplication({
-                          id: recepient._id,
+                          id1: recepient._id,
+                          id2: extractNumberValue(
+                            recepient.referenceId as string
+                          ),
                           isApproved: true,
-                        })
-                      }
+                        });
+                        toast.success("Application approved!");
+                      }}
                     >
                       {recepient.isApproved ? "Approved" : "Approve"}
                     </Button>
                     <Button
                       className={`${recepient.isApproved ? "hidden" : "block"}`}
-                      onClick={() =>
+                      onClick={() => {
                         handleDeny(
                           recepient._id,
                           extractNumberValue(recepient.referenceId as string)
-                        )
-                      }
+                        );
+                        toast.error("Application denied!");
+                      }}
                     >
                       Deny
                     </Button>
