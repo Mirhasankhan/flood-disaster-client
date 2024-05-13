@@ -6,10 +6,12 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Button } from "antd";
 import { CiLogout } from "react-icons/ci";
 import { AlignRightOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { FaBorderAll } from "react-icons/fa";
 import {
   MdDashboard,
   MdOutlineManageAccounts,
   MdRateReview,
+  MdLeaderboard,
 } from "react-icons/md";
 
 const MenuDropdown = () => {
@@ -57,14 +59,28 @@ const MenuDropdown = () => {
           </Link>
           <Link
             to={`/${role}/dashboard`}
-            className="flex gap-2 items-center text-gray-700 my-3"
+            className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
           >
             <MdDashboard className="text-2xl" />
             <h1 className="hover:underline hover:text-red-500">Dashboard</h1>
           </Link>
           <Link
+            to={`/supplies`}
+            className="flex gap-2 items-center text-gray-700 md:my-3 my-1 md:hidden"
+          >
+            <FaBorderAll className="text-2xl" />
+            <h1 className="hover:underline hover:text-red-500">All Supplies</h1>
+          </Link>
+          <Link
+            to={`leaderboard`}
+            className="flex gap-2 items-center text-gray-700 md:my-3 my-1 md:hidden"
+          >
+            <MdLeaderboard className="text-2xl" />
+            <h1 className="hover:underline hover:text-red-500">Leaderboard</h1>
+          </Link>
+          <Link
             to={`/myReviews`}
-            className="flex gap-2 items-center text-gray-700 my-3"
+            className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
           >
             <MdRateReview className="text-2xl" />
             <h1 className="hover:underline hover:text-red-500">My Reviews</h1>
