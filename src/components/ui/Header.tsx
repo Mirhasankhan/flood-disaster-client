@@ -7,11 +7,13 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setUser, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useUpdateMutation } from "../../redux/features/auth/authApi";
 import Swal from "sweetalert2";
+import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const { email, role, token } = useAppSelector(useCurrentUser);
   const [updateUser] = useUpdateMutation();
+  const { data } = useAppliesQuery(email);
 
   const handleBecomeDonor = async () => {
     Swal.fire({
@@ -68,7 +70,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex gap-2 items-center">
-          {role == "recipient" && (
+          {role === "recipient" && data?.length < 1 && (
             <Button onClick={() => handleBecomeDonor()}>Become Donor</Button>
           )}
           <MenuDropdown></MenuDropdown>
