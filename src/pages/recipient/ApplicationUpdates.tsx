@@ -16,8 +16,6 @@ const ApplicationUpdates = () => {
     (approved: { isApproved: boolean }) => approved.isApproved === true
   );
 
-  // const onChange = (key: string) => {};
-
   const items: TabsProps["items"] = [
     {
       key: "1",

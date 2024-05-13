@@ -34,7 +34,7 @@ const Login = () => {
         <div className="w-full md:block hidden">
           <img src={imgs} alt="" />
         </div>
-        <div className="rounded-lg shadow-xl p-6 h-80 w-full">
+        <div className="rounded-lg shadow-xl p-6 h-80 w-full border">
           <Row justify="center">
             <Col span={24}>
               <PHForm onSubmit={onSubmit}>
@@ -60,7 +60,7 @@ const Login = () => {
                 </Row>
 
                 <Button
-                  className="w-full bg-green-300 font-semibold text-white"
+                  className="w-full bg-green-300 font-semibold"
                   htmlType="submit"
                 >
                   Login

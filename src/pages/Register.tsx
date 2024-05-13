@@ -22,10 +22,10 @@ const Register = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-semibold text-center py-4">
+      <h1 className="text-xl md:text-3xl font-semibold text-center py-4">
         Register <span className="text-green-400">New Account</span>
       </h1>
-      <div className="shadow-xl rounded-lg p-4 w-1/2 md:w-1/3 mx-auto mt-6">
+      <div className="shadow-xl border rounded-lg p-4 w-3/4 md:w-1/3 mx-auto mt-6">
         <Row justify="center">
           <Col span={24}>
             <PHForm onSubmit={onSubmit}>
@@ -61,7 +61,7 @@ const Register = () => {
               </Row>
 
               <Button
-                className="w-full bg-green-300 text-white font-semibold"
+                className="w-full bg-green-300  font-semibold"
                 htmlType="submit"
               >
                 Register

@@ -17,6 +17,7 @@ import {
 const MenuDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { email, role } = useAppSelector(useCurrentUser);
+
   const dispatch = useAppDispatch();
 
   return (
@@ -30,7 +31,7 @@ const MenuDropdown = () => {
             >
               <UserOutlined className="text-2xl bg-white p-2 text-gray-400 rounded-full"></UserOutlined>
               <div className=" md:block">
-                <h1>Hello, {role}</h1>
+                <h1>Hello, {email ? email.toString() : ""}</h1>
               </div>
             </div>
           </div>

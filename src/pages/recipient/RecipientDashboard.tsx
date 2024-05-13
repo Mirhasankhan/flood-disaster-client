@@ -10,48 +10,35 @@ import {
 } from "recharts";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
-import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
+import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
 
-const DonorDashboard = () => {
+const RecipientDashboard = () => {
   const { email } = useAppSelector(useCurrentUser);
-  const { data } = useSuppliesQuery(email);
-  const applied = data?.filter(
-    (apply: { isApplied: boolean }) => apply.isApplied == true
-  );
-  const notApplied = data?.filter(
-    (apply: { isApplied: boolean }) => apply.isApplied == false
-  );
+  const { data } = useAppliesQuery(email);
+
   const approved = data?.filter(
     (apply: { isApproved: boolean }) => apply.isApproved == true
   );
 
   const infos = [
     {
-      name: "Total Donation",
-      number: data?.length,
-    },
-    {
-      name: "not-applied",
-      number: notApplied?.length,
-    },
-    {
       name: "Applied",
-      number: applied?.length,
-    },
-    {
-      name: "Pending",
-      number: applied?.length - approved?.length,
+      number: data?.length,
     },
     {
       name: "Approved",
       number: approved?.length,
+    },
+    {
+      name: "Pending",
+      number: data?.length - approved?.length,
     },
   ];
 
   return (
     <div>
       <h1 className="text-center text-4xl font-semibold my-8">
-        My Donation Overview
+        My Application Overview
       </h1>
       <div className="w-[100%]">
         <BarChart
@@ -70,11 +57,6 @@ const DonorDashboard = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          {/* <Bar
-            dataKey="pv"
-            fill="#8884d8"
-            activeBar={<Rectangle fill="pink" stroke="blue" />}
-          /> */}
           <Bar
             dataKey="number"
             fill="#82ca9d"
@@ -86,4 +68,4 @@ const DonorDashboard = () => {
   );
 };
 
-export default DonorDashboard;
+export default RecipientDashboard;
