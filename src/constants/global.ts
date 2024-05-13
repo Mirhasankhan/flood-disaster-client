@@ -10,3 +10,9 @@ export const roles = roleNames.map((item) => ({
   value: item,
   label: item,
 }));
+export const ratingsList = ["1", "2", "3", "4", "5"];
+
+export const ratings = ratingsList.map((item) => ({
+  value: item,
+  label: item,
+}));

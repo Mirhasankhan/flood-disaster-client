@@ -3,8 +3,6 @@ import { Button, Col, Row } from "antd";
 import { useRegisterMutation } from "../redux/features/auth/authApi";
 import PHForm from "../components/form/PHForm";
 import PHInput from "../components/form/PHInput";
-import PHSelect from "../components/form/PHSelect";
-import { roles } from "../constants/global";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -13,13 +11,11 @@ const Register = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    if (data.role == null) {
-      toast.error(
-        "Account Not Created! Please select a role to create account"
-      );
-      return;
-    }
-    registerAccount(data);
+    const newAccount = {
+      ...data,
+      role: "recipient",
+    };
+    registerAccount(newAccount);
     toast.success("Account Registered Successfully");
     navigate("/login");
   };
@@ -61,15 +57,6 @@ const Register = () => {
                     name="password"
                     label="Password"
                   />
-                </Col>
-              </Row>
-              <Row gutter={8}>
-                <Col span={24}>
-                  <PHSelect
-                    label="Select Role"
-                    name="role"
-                    options={roles}
-                  ></PHSelect>
                 </Col>
               </Row>
 

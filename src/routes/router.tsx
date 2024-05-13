@@ -3,7 +3,6 @@ import App from "../App";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-import ProtectedRoute from "../components/layouts/ProtectedRoute";
 import { routeGenerator } from "../utils/routeGenerator";
 import { adminPaths } from "./admin.routes";
 import { donorPaths } from "./donorRoutes";
@@ -13,6 +12,10 @@ import { receipientPaths } from "./recipient.routes";
 import Home from "../pages/Home/Home";
 import Testimonials from "../pages/testimonials/Testimonials";
 import LeaderBoard from "../pages/LeaderBoard";
+import AdminRoute from "./AdminRoute";
+import DonorRoute from "./DonorRoute";
+import RecipientRoute from "./RecepientRoute";
+import Community from "../pages/community/Community";
 
 const router = createBrowserRouter([
   {
@@ -39,32 +42,36 @@ const router = createBrowserRouter([
         path: "/leaderboard",
         element: <LeaderBoard></LeaderBoard>,
       },
+      {
+        path: "/community",
+        element: <Community></Community>,
+      },
     ],
   },
   {
     path: "/admin",
     element: (
-      <ProtectedRoute>
+      <AdminRoute>
         <DashboardLayout></DashboardLayout>
-      </ProtectedRoute>
+      </AdminRoute>
     ),
     children: routeGenerator(adminPaths),
   },
   {
     path: "/donor",
     element: (
-      <ProtectedRoute>
+      <DonorRoute>
         <DashboardLayout></DashboardLayout>
-      </ProtectedRoute>
+      </DonorRoute>
     ),
     children: routeGenerator(donorPaths),
   },
   {
     path: "/recipient",
     element: (
-      <ProtectedRoute>
+      <RecipientRoute>
         <DashboardLayout></DashboardLayout>
-      </ProtectedRoute>
+      </RecipientRoute>
     ),
     children: routeGenerator(receipientPaths),
   },

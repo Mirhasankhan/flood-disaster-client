@@ -6,7 +6,7 @@ import { Button } from "antd";
 
 const Supply = () => {
   const { data } = useSuppliesQuery("");
-  const unApproved = data.filter(
+  const unApproved = data?.filter(
     (a: { isApproved: boolean }) => a.isApproved == false
   );
 

@@ -14,6 +14,7 @@ const AddSupply = () => {
   const { email } = useAppSelector(useCurrentUser);
 
   const [newSupply] = useAddSupplyMutation();
+  const supplyCategory = categories.filter((c) => c.value !== "All");
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
@@ -85,7 +86,7 @@ const AddSupply = () => {
               <PHSelect
                 label="Category"
                 name="category"
-                options={categories}
+                options={supplyCategory}
               ></PHSelect>
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
