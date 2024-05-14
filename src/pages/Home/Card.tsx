@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { TSupplyCardProps } from "../../types";
-import SupplyDetailsModal from "../supplies/SupplyDetailsModal";
+import { Button } from "antd";
 
 const Card = ({ supply }: TSupplyCardProps) => {
-  const { supplyName, amount, image, category } = supply;
+  const { supplyName, amount, image, category, _id } = supply;
 
   return (
     <div className="border shadow-md rounded-md overflow-hidden">
@@ -17,7 +18,9 @@ const Card = ({ supply }: TSupplyCardProps) => {
         <p>Category: {category}</p>
       </div>
       <div className="p-3">
-        <SupplyDetailsModal supply={supply}></SupplyDetailsModal>
+        <Link to={`/supplies/${_id}`} state={{ supply: supply }}>
+          <Button>View Details</Button>
+        </Link>
       </div>
     </div>
   );

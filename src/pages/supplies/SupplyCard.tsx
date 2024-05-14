@@ -1,9 +1,10 @@
 import ApplySupply from "./ApplySupply";
 import { TSupplyCardProps } from "../../types";
-import SupplyDetailsModal from "./SupplyDetailsModal";
+import { Link } from "react-router-dom";
+import { Button } from "antd";
 
 const SupplyCard = ({ supply }: TSupplyCardProps) => {
-  const { supplyName, amount, image, category } = supply;
+  const { supplyName, amount, image, category, _id } = supply;
 
   return (
     <div className="shadow-md border overflow-hidden rounded-md">
@@ -18,7 +19,9 @@ const SupplyCard = ({ supply }: TSupplyCardProps) => {
         <p>Category: {category}</p>
       </div>
       <div className="p-3 flex gap-2 justify-between">
-        <SupplyDetailsModal supply={supply}></SupplyDetailsModal>
+        <Link to={`/supplies/${_id}`} state={{ supply: supply }}>
+          <Button>View Details</Button>
+        </Link>
         <ApplySupply supply={supply}></ApplySupply>
       </div>
     </div>

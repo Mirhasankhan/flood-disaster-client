@@ -1,44 +1,33 @@
 import { useLocation } from "react-router-dom";
-import { useSingleSupplyQuery } from "../../redux/features/supply/supplyManagement.api";
-import { Button, Modal } from "antd";
-import { useState } from "react";
-import { DataItem } from "../../types";
+import Details from "./Details";
+import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
+import Related from "./Related";
+import { TSupply } from "../../types";
 
 const SupplyDetails = () => {
+  const { data } = useSuppliesQuery("");
   const location = useLocation();
-  const supplyId = location.state;
-  const { data } = useSingleSupplyQuery(supplyId, { skip: !supplyId });
+  const { supply } = location.state;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
+  const unApproved = data.filter(
+    (a: { isApproved: boolean }) => a.isApproved == false
+  );
   return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
-      <Modal
-        title="Basic Modal"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        {data?.map((detail: DataItem) => (
-          <p>{detail._id}</p>
-        ))}
-      </Modal>
-    </>
+    <div className="w-4/5 md:w-3/4 mx-auto">
+      <div className="md:grid grid-cols-4 py-6">
+        <div className="col-span-3 border p-4">
+          <Details supply={supply}></Details>
+        </div>
+        <div className="col-span-1 mt-3 md:mt-0 bg-gray-300 p-3 max-h-96 overflow-y-auto">
+          <h1 className="text-center my-4 font-semibold underline text-white">
+            Related Supplies
+          </h1>
+          {unApproved.map((r: TSupply) => (
+            <Related key={r._id} related={r}></Related>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
