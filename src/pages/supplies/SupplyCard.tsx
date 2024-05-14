@@ -18,9 +18,9 @@ const SupplyCard = ({ supply }: TSupplyCardProps) => {
         <p className="text-red-400">${amount}</p>
         <p>Category: {category}</p>
       </div>
-      <div className="p-3 flex gap-2 justify-between">
+      <div className="p-3 flex justify-between">
         <Link to={`/supplies/${_id}`} state={{ supply: supply }}>
-          <Button className="bg-green-400 h-10">View Details</Button>
+          <Button className="bg-green-400 h-10 w-full">View Details</Button>
         </Link>
         <ApplySupply supply={supply}></ApplySupply>
       </div>

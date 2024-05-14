@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { PlusOutlined } from "@ant-design/icons";
 import { Button, Col, Divider, Drawer, Row, Space } from "antd";
 import PHInput from "../../components/form/PHInput";
 import PHForm from "../../components/form/PHForm";
@@ -44,7 +43,6 @@ const ApplySupply = ({ supply }: TSupplyCardProps) => {
           disabled={role !== "recipient" || supply.isApplied == true}
           className="bg-purple-400 h-10"
           onClick={showDrawer}
-          icon={<PlusOutlined />}
         >
           {supply.isApplied == true ? "Already Applied" : "Apply Now"}
         </Button>
