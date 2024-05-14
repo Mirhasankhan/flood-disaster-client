@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { logOut, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Button } from "antd";
-import { CiLogout } from "react-icons/ci";
+import { CiLogout, CiCircleList } from "react-icons/ci";
 import { AlignRightOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { FaBorderAll } from "react-icons/fa";
 import {
@@ -52,7 +52,7 @@ const MenuDropdown = () => {
       )}
       {isOpen && (
         <div className="absolute top-[44px] border md:top-[76px] right-0 bg-white p-2 md:p-6 rounded-b-md min-w-[250px]">
-          <Link to="/profile" className="flex gap-2 items-center text-gray-700">
+          <Link to="/" className="flex gap-2 items-center text-gray-700">
             <MdOutlineManageAccounts className="text-2xl" />
             <h1 className="hover:underline hover:text-red-500">
               Manage My Account
@@ -64,6 +64,13 @@ const MenuDropdown = () => {
           >
             <MdDashboard className="text-2xl" />
             <h1 className="hover:underline hover:text-red-500">Dashboard</h1>
+          </Link>
+          <Link
+            to={`/`}
+            className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
+          >
+            <CiCircleList className="text-2xl" />
+            <h1 className="hover:underline hover:text-red-500">My Watchlist</h1>
           </Link>
           <Link
             to={`/supplies`}
@@ -80,7 +87,7 @@ const MenuDropdown = () => {
             <h1 className="hover:underline hover:text-red-500">Leaderboard</h1>
           </Link>
           <Link
-            to={`/myReviews`}
+            to={`/`}
             className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
           >
             <MdRateReview className="text-2xl" />

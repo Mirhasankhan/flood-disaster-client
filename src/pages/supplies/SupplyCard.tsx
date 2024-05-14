@@ -20,7 +20,7 @@ const SupplyCard = ({ supply }: TSupplyCardProps) => {
       </div>
       <div className="p-3 flex gap-2 justify-between">
         <Link to={`/supplies/${_id}`} state={{ supply: supply }}>
-          <Button>View Details</Button>
+          <Button className="bg-green-400 h-10">View Details</Button>
         </Link>
         <ApplySupply supply={supply}></ApplySupply>
       </div>

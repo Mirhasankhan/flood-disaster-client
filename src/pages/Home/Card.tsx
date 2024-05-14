@@ -19,7 +19,7 @@ const Card = ({ supply }: TSupplyCardProps) => {
       </div>
       <div className="p-3">
         <Link to={`/supplies/${_id}`} state={{ supply: supply }}>
-          <Button>View Details</Button>
+          <Button className="w-full bg-green-400 h-10">View Details</Button>
         </Link>
       </div>
     </div>

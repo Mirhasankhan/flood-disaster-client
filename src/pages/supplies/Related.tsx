@@ -21,7 +21,7 @@ const Related = ({ related }: { related: TSupply }) => {
       </div>
       <div>
         <h1>{related.supplyName} </h1>
-        <p className="text-orange-600">Amount.${related.amount}</p>
+        <p className="text-orange-600">Amount: ${related.amount}</p>
       </div>
     </div>
   );

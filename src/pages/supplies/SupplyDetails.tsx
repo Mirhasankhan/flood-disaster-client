@@ -3,8 +3,12 @@ import Details from "./Details";
 import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
 import Related from "./Related";
 import { TSupply } from "../../types";
+import { useEffect } from "react";
 
 const SupplyDetails = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { data } = useSuppliesQuery("");
   const location = useLocation();
   const { supply } = location.state;
