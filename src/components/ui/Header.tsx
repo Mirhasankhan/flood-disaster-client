@@ -54,18 +54,18 @@ const Header = () => {
           </div>
         </NavLink>
         <div className="md:flex gap-4 hidden">
-          <Link
+          <NavLink
             to="supplies"
             className="hover:bg-gray-500 p-2 rounded-md font-semibold"
           >
             All Supplies
-          </Link>
-          <Link
+          </NavLink>
+          {/* <Link
             to="/community"
             className="hover:bg-gray-500 p-2 rounded-md font-semibold"
           >
             Community
-          </Link>
+          </Link> */}
           <Link
             to="/leaderboard"
             className="hover:bg-gray-500 p-2 rounded-md font-semibold"

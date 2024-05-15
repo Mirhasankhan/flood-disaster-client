@@ -15,7 +15,7 @@ const Volunteer = () => {
     reset();
   };
   return (
-    <div className="md:grid grid-cols-2 gap-12 mx-6 md:mx-12">
+    <div className="md:grid grid-cols-2 gap-12 mx-6 md:mx-12 py-5">
       <div className="px-12">
         <img
           className="hidden md:block h-[450px] w-full"
