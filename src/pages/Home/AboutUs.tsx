@@ -46,7 +46,7 @@ const AboutUs = () => {
         </div>
         <div className="relative">
           <img className="rounded-lg w-full" src={aboutPic} alt="" />
-          <h1 className="absolute bottom-4 -left-48  bg-red-600 p-8 hidden md:block rounded-md md:w-3/5 italic text-white text-3xl">
+          <h1 className="absolute bottom-4 -left-48  bg-red-600 p-8 hidden md:block rounded-md md:w-3/5 italic text-white text-2xl">
             20 Years of experience in <br />
             charity fund
           </h1>

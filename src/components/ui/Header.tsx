@@ -8,8 +8,12 @@ import { setUser, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useUpdateMutation } from "../../redux/features/auth/authApi";
 import Swal from "sweetalert2";
 import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
+import { useContext } from "react";
+import { ThemeContext } from "../providers/ThemeProvider";
+import { FaMoon, FaRegMoon } from "react-icons/fa";
 
 const Header = () => {
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const dispatch = useAppDispatch();
   const { email, role, token } = useAppSelector(useCurrentUser);
   const [updateUser] = useUpdateMutation();
@@ -74,6 +78,19 @@ const Header = () => {
             <Button onClick={() => handleBecomeDonor()}>Become Donor</Button>
           )}
           <MenuDropdown></MenuDropdown>
+          {isDarkMode ? (
+            <div title="Switch To Light Mode">
+              <button className="text-xl" onClick={toggleTheme}>
+                <FaMoon />
+              </button>
+            </div>
+          ) : (
+            <div title="Switch To Dark Mode">
+              <button className="text-xl text-black" onClick={toggleTheme}>
+                <FaRegMoon />
+              </button>
+            </div>
+          )}
         </div>
       </nav>
     </div>

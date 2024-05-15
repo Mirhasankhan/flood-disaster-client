@@ -4,9 +4,12 @@ import Footer from "../ui/Footer";
 import Lottie from "lottie-react";
 import spinner from "../../assets/animation_llxinh3q.json";
 import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
+import { useContext } from "react";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 const MainLayout = () => {
   const { isLoading } = useSuppliesQuery("");
+  const { isDarkMode } = useContext(ThemeContext);
   return isLoading ? (
     <div className="flex justify-center items-center">
       <Lottie
@@ -18,7 +21,13 @@ const MainLayout = () => {
   ) : (
     <div>
       <Header></Header>
-      <div className="min-h-[calc(100vh-100px)]">
+      <div
+        style={{
+          background: isDarkMode ? "black" : "white",
+          color: isDarkMode ? "white" : "black",
+        }}
+        className="min-h-[calc(100vh-100px)]"
+      >
         <Outlet />
       </div>
       <Footer></Footer>

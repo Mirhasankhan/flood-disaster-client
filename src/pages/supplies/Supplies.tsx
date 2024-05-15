@@ -30,7 +30,7 @@ const Supplies = () => {
   return (
     <div className="mx-6 md:mx-12">
       <div>
-        <div className="w-full my-12">
+        <div className="w-full py-12">
           <h1 className="text-center font-semibold text-3xl md:text-5xl py-5">
             Our All Supplies
           </h1>
@@ -45,7 +45,7 @@ const Supplies = () => {
           ></Select>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pb-4 gap-5">
         {filteredSupplies?.map((supply: TSupply) => (
           <SupplyCard supply={supply} key={supply._id}></SupplyCard>
         ))}

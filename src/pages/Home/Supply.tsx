@@ -19,7 +19,7 @@ const Supply = () => {
         ))}
       </div>
       <Link to="/supplies" className="flex justify-center my-6">
-        <Button>View All Supplies</Button>
+        <Button className="bg-purple-400 font-medium">View All Supplies</Button>
       </Link>
     </div>
   );

@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4 mt-12 px-6">
+    <footer className="bg-gray-800 text-white py-4 pt-12 px-6">
       <div className="container mx-auto  md:flex justify-between items-center">
         <div className="text-left">
           <div className="flex gap-2 items-center my-3">
