@@ -31,14 +31,11 @@ const Supplies = () => {
     <div className="mx-6 md:mx-12">
       <div>
         <div className="w-full py-12">
-          <h1 className="text-center font-semibold text-3xl md:text-5xl py-5">
-            Our All Supplies
-          </h1>
           <label className="text-sm md:text-xl font-medium">
             *Filter By Category:{" "}
           </label>
           <Select
-            defaultValue="filter"
+            defaultValue="default"
             className="w-1/5"
             onChange={handleSelectChange}
             options={categories}

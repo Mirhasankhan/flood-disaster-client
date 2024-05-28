@@ -53,35 +53,41 @@ const DonorDashboard = () => {
       <h1 className="text-center text-4xl font-semibold my-8">
         My Donation Overview
       </h1>
-      <div className="w-[100%]">
-        <BarChart
-          width={900}
-          height={450}
-          data={infos}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          {/* <Bar
-            dataKey="pv"
-            fill="#8884d8"
-            activeBar={<Rectangle fill="pink" stroke="blue" />}
-          /> */}
-          <Bar
-            dataKey="number"
-            fill="#82ca9d"
-            activeBar={<Rectangle fill="gold" stroke="purple" />}
-          />
-        </BarChart>
-      </div>
+      {data?.length > 0 ? (
+        <div className="w-[100%]">
+          <BarChart
+            width={900}
+            height={450}
+            data={infos}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            {/* <Bar
+          dataKey="pv"
+          fill="#8884d8"
+          activeBar={<Rectangle fill="pink" stroke="blue" />}
+        /> */}
+            <Bar
+              dataKey="number"
+              fill="#82ca9d"
+              activeBar={<Rectangle fill="gold" stroke="purple" />}
+            />
+          </BarChart>
+        </div>
+      ) : (
+        <p className="text-xl font-semibold text-red-500">
+          No Supply Added Yet
+        </p>
+      )}
     </div>
   );
 };

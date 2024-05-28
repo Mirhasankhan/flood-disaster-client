@@ -95,6 +95,7 @@ const AddSupply = () => {
                 render={({ field: { onChange, value, ...field } }) => (
                   <Form.Item label="Picture">
                     <Input
+                      className="bg-gray-100 border-2 border-green-200"
                       type="file"
                       value={value?.fileName}
                       {...field}
@@ -113,7 +114,7 @@ const AddSupply = () => {
             </Col> */}
           </Row>
 
-          <Button htmlType="submit" className="sm-w-full">
+          <Button htmlType="submit" className="bg-green-400 w-full">
             Submit
           </Button>
         </PHForm>

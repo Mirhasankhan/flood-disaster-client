@@ -27,9 +27,9 @@ const MenuDropdown = () => {
           <div className="hidden md:flex flex-row items-center gap-3 cursor-pointer">
             <div
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 bg-transparent hover:bg-gray-600 flex items-center gap-1 rounded-lg"
+              className="p-2 bg-transparent hover:bg-gray-600 hover:text-white flex items-center gap-1 rounded-lg"
             >
-              <UserOutlined className="text-2xl bg-white p-2 text-gray-400 rounded-full"></UserOutlined>
+              <UserOutlined className="text-2xl bg-white p-2 text-gray-400 border rounded-full"></UserOutlined>
               <div className=" md:block">
                 <h1>Hello, {email ? email.toString() : ""}</h1>
               </div>

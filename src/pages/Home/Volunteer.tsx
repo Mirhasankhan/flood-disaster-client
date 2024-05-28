@@ -1,18 +1,52 @@
-import { MdOutlineEmail } from "react-icons/md";
 import littleBoy from "../../assets/images/little-boy.png";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
+import { Button, Col, Divider, Drawer, Form, Input, Row, Space } from "antd";
 import { useAddVolunteerMutation } from "../../redux/features/Volunteers/volunteer.api";
 
-type TInputs = {
-  email: string;
-};
+import { useState } from "react";
+import { toast } from "sonner";
+import PHForm from "../../components/form/PHForm";
+import PHInput from "../../components/form/PHInput";
+import axios from "axios";
 
 const Volunteer = () => {
   const [createVolunteer] = useAddVolunteerMutation();
-  const { register, handleSubmit, reset } = useForm<TInputs>();
-  const onSubmit: SubmitHandler<TInputs> = (data) => {
-    createVolunteer(data);
-    reset();
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    try {
+      // Upload image to ImgBB
+      const formData = new FormData();
+      formData.append("image", data.image);
+      const imgbbResponse = await axios.post(
+        `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMAGE_UPLOAD_TOKEN
+        }`,
+        formData
+      );
+      const imgUrl = imgbbResponse.data.data.url;
+      const modifiedData = {
+        ...data,
+        image: {
+          ...data.image,
+          imageUrl: imgUrl,
+        },
+      };
+      createVolunteer(modifiedData);
+
+      toast.success("Congrats, You became Volunteer Successfully");
+      onClose();
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
   };
   return (
     <div className="md:grid grid-cols-2 gap-12 mx-6 md:mx-12 py-5">
@@ -37,7 +71,7 @@ const Volunteer = () => {
           is a great place to start. I'm also looking forward to getting more
           involved with the local community.
         </p>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        {/* <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex mt-8 relative">
             <input
               className="border p-3 pl-12 w-full"
@@ -55,7 +89,65 @@ const Volunteer = () => {
               Sign Up
             </button>
           </div>
-        </form>
+        </form> */}
+        <Button
+          onClick={showDrawer}
+          className="bg-green-500 font-semibold mt-6"
+        >
+          BECOME A VOLUNTEER
+        </Button>
+        <Drawer
+          title="Become Our Volunteer!!"
+          width={600}
+          onClose={onClose}
+          open={open}
+          styles={{
+            body: {
+              paddingBottom: 80,
+            },
+          }}
+          extra={
+            <Space>
+              <Button className="bg-red-500" onClick={onClose}>
+                Cancel
+              </Button>
+            </Space>
+          }
+        >
+          <PHForm onSubmit={onSubmit}>
+            <Divider>Volunteer Info.</Divider>
+            <Row gutter={8}>
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput type="text" name="name" label="Name" />
+              </Col>
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput type="email" name="email" label="Email" />
+              </Col>
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput type="number" name="contactNo" label="Contact No" />
+              </Col>
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <Controller
+                  name="image"
+                  render={({ field: { onChange, value, ...field } }) => (
+                    <Form.Item label="Picture">
+                      <Input
+                        type="file"
+                        value={value?.fileName}
+                        {...field}
+                        onChange={(e) => onChange(e.target.files?.[0])}
+                      />
+                    </Form.Item>
+                  )}
+                />
+              </Col>
+            </Row>
+
+            <Button className="w-full bg-green-400" htmlType="submit">
+              Submit
+            </Button>
+          </PHForm>
+        </Drawer>
       </div>
     </div>
   );

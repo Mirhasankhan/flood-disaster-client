@@ -10,7 +10,8 @@ import Swal from "sweetalert2";
 import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
 import { useContext } from "react";
 import { ThemeContext } from "../providers/ThemeProvider";
-import { FaMoon, FaRegMoon } from "react-icons/fa";
+import { FaRegMoon } from "react-icons/fa";
+import { MdLightMode } from "react-icons/md";
 
 const Header = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
@@ -40,53 +41,68 @@ const Header = () => {
       }
     });
   };
+
   return (
-    <div className="">
-      <nav className="text-white sticky top-0 flex z-10 justify-between md:px-8 px-2 h-16  md:h-24 w-full items-center bg-black bg-opacity-40">
-        <NavLink className="text-2xl md:text-4xl " to="/">
-          <div className="flex gap-2 items-center">
+    <div
+      style={{
+        background: isDarkMode ? "white" : "black",
+        color: isDarkMode ? "black" : "white",
+      }}
+      className="sticky top-0 z-10 w-full bg-white"
+    >
+      <nav className="flex justify-between md:px-8 px-2 h-16 md:h-24 items-center">
+        <NavLink className="text-xl md:text-2xl" to="/">
+          <div className="flex gap-1 items-center">
             <img
-              className="h-8 w-8  md:h-16 md:w-16  rounded-full"
+              className="h-8 w-8 md:h-12 md:w-12 rounded-full"
               src={logo}
-              alt=""
+              alt="FloodCare Logo"
             />
-            <h1 className="text-green-300 font-semibold">FloodCare</h1>
+            <h1 className="text-green-300 font-semibold italic">FloodCare</h1>
           </div>
         </NavLink>
         <div className="md:flex gap-4 hidden">
           <NavLink
             to="supplies"
-            className="hover:bg-gray-500 p-2 rounded-md font-semibold"
+            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
           >
             All Supplies
           </NavLink>
+          <Link
+            to="/leaderboard"
+            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+          >
+            Leaderboard
+          </Link>
           {/* <Link
             to="/community"
-            className="hover:bg-gray-500 p-2 rounded-md font-semibold"
+            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
           >
             Community
           </Link> */}
           <Link
-            to="/leaderboard"
-            className="hover:bg-gray-500 p-2 rounded-md font-semibold"
+            to="/about-us"
+            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
           >
-            Leaderboard
+            About Us
           </Link>
         </div>
         <div className="flex gap-2 items-center">
           {role === "recipient" && data?.length < 1 && (
-            <Button onClick={() => handleBecomeDonor()}>Become Donor</Button>
+            <Button className="text-green-400" onClick={handleBecomeDonor}>
+              Become Donor
+            </Button>
           )}
-          <MenuDropdown></MenuDropdown>
+          <MenuDropdown />
           {isDarkMode ? (
             <div title="Switch To Light Mode">
               <button className="text-xl" onClick={toggleTheme}>
-                <FaMoon />
+                <MdLightMode />
               </button>
             </div>
           ) : (
             <div title="Switch To Dark Mode">
-              <button className="text-xl text-black" onClick={toggleTheme}>
+              <button className="text-xl text-white" onClick={toggleTheme}>
                 <FaRegMoon />
               </button>
             </div>

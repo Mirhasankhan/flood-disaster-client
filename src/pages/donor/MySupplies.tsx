@@ -34,10 +34,6 @@ const MySupplies2 = () => {
     toast.success("Supply Deleted");
   };
 
-  // const handleEdit = (id: string) => {
-  //   console.log(id);
-  // };
-
   return (
     <div>
       {data && data.length > 0 ? (

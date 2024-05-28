@@ -16,6 +16,7 @@ import AdminRoute from "./AdminRoute";
 import DonorRoute from "./DonorRoute";
 import RecipientRoute from "./RecepientRoute";
 import Community from "../pages/community/Community";
+import About from "../pages/aboutUs/About";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/community",
         element: <Community></Community>,
+      },
+      {
+        path: "/about-us",
+        element: <About></About>,
       },
     ],
   },

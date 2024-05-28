@@ -1,5 +1,7 @@
 import aboutPic from "../../assets/images/aboutUs.avif";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import Button from "../../components/ui/Button";
 
 const AboutUs = () => {
   return (
@@ -37,12 +39,10 @@ const AboutUs = () => {
               Charity For Baby's Hunger
             </div>
           </div>
-          <div className="py-1">
-            <div className="flex items-center">
-              <CheckCircleOutlined className="text-red-400 text-xl pr-1" />
-              Charity For Clean Water
-            </div>
-          </div>
+
+          <Link className="" to={"/about-us"}>
+            <Button bgColor="bg-green-400 mt-3">Learn More</Button>
+          </Link>
         </div>
         <div className="relative">
           <img className="rounded-lg w-full" src={aboutPic} alt="" />

@@ -33,6 +33,7 @@ const PHInput = ({
               id={name}
               size="large"
               disabled={disabled}
+              className="bg-gray-100 border-2 border-green-200"
               required
               readOnly={readOnly}
               placeholder={placeholder}

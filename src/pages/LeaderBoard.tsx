@@ -1,4 +1,5 @@
 import { useLeaderboardQuery } from "../redux/features/users/userManagement.api";
+import { GiQueenCrown } from "react-icons/gi";
 
 const LeaderBoard = () => {
   const { data } = useLeaderboardQuery("");
@@ -6,9 +7,9 @@ const LeaderBoard = () => {
   return (
     <div>
       <h1 className="text-center text-2xl font-semibold py-6 md:text-4xl">
-        Leader Board
+        Donor Leaderboard
       </h1>
-      <div className="w-4/5 md:w-2/3 mx-auto">
+      <div className="w-4/5 md:w-2/3 mx-auto bg-purple-200 p-4 rounded-md ">
         <div className="overflow-x-auto">
           <table className="table">
             <thead className="bg-gray-600 text-white">
@@ -25,9 +26,12 @@ const LeaderBoard = () => {
                   leader: { email: string; frequency: number; name: string },
                   index: string
                 ) => (
-                  <tr className="mb-4" key={index}>
+                  <tr key={index}>
                     <th>{index + 1}</th>
-                    <td>{leader.name}</td>
+                    <td className="flex items-center gap-2">
+                      {leader.name}
+                      <GiQueenCrown className="text-orange-400 text-xl" />
+                    </td>
                     <td>{leader.email}</td>
                     <td>{leader.frequency}</td>
                   </tr>

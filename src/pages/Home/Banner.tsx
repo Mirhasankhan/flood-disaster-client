@@ -1,6 +1,6 @@
-import { Button } from "antd";
 import bannerPic from "../../assets/images/g4.avif";
 import bannerPic2 from "../../assets/images/g11.avif";
+import Button from "../../components/ui/Button";
 
 const Banner = () => {
   return (
@@ -19,7 +19,7 @@ const Banner = () => {
               platform is dedicated to revolutionizing the way food reaches
               those in need.
             </p>
-            <Button className="bg-yellow-400 my-4">Explore More</Button>
+            <Button bgColor="bg-green-400 mt-4">Explore More</Button>
           </div>
         </div>
         <div>

@@ -1,46 +1,40 @@
-// import { useAddReviewMutation } from "../../redux/features/reviews/reviewManagement.api";
-// import { useState } from "react";
-// import { useAppSelector } from "../../redux/hooks";
-// import { useCurrentUser } from "../../redux/features/auth/authSlice";
-// import { Modal } from "antd";
+import { useAllCommentsQuery } from "../../redux/features/community/community.api";
+
+type TCommunity = {
+  _id: string;
+  name: string;
+  comment: string;
+  rating: string;
+  time: string;
+};
 
 const Community = () => {
-  // const [addReview] = useAddReviewMutation();
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const { email } = useAppSelector(useCurrentUser);
-
-  // const showModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const handleCancel = () => {
-  //   setIsModalOpen(false);
-  // };
+  const { data } = useAllCommentsQuery("");
 
   return (
-    // <div className="w-full">
-    //   <div onClick={showModal} className="fixed top-28 right-4 z-50">
-    //     <a
-    //       href="#"
-    //       className="block bg-blue-500 p-4 rounded-full shadow-lg hover:bg-blue-600"
-    //       title="Add Comment"
-    //     >
-    //       hello
-    //     </a>
-    //   </div>
-
-    //   <Modal
-    //     title="Add your Review"
-    //     open={isModalOpen}
-    //     onCancel={handleCancel}
-    //     footer={null}
-    //   >
-    //     <div className="flex flex-col items-center  border-2 p-2 m-6 rounded-md">
-    //       <div className="flex flex-col items-center relative"></div>
-    //     </div>
-    //   </Modal>
-    // </div>
-    <div>hello</div>
+    <div className="grid grid-cols-2 gap-4 mt-6">
+      <div>
+        <h1 className="text-6xl font-bold">
+          What Community <br /> Thinks About Us
+        </h1>
+        <p>
+          Our goal is to create a product and service that you’re satisfied with
+          and use it every day. This is why we’re constantly working on our
+          services to make it better every day and really listen to what our
+          users has to say.
+        </p>
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+        {data?.map((com: TCommunity) => (
+          <div className="border rounded-md p-4" key={com._id}>
+            <h1>{com.name}</h1>
+            <h1>{com.time}</h1>
+            <p>{com.rating}</p>
+            <p>{com.comment}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

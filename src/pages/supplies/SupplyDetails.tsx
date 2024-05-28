@@ -17,18 +17,20 @@ const SupplyDetails = () => {
     (a: { isApproved: boolean }) => a.isApproved == false
   );
   return (
-    <div className="w-4/5 md:w-3/4 mx-auto">
-      <div className="md:grid grid-cols-4 py-6">
-        <div className="col-span-3 border p-4">
-          <Details supply={supply}></Details>
-        </div>
-        <div className="col-span-1 mt-3 md:mt-0 bg-gray-300 p-3 max-h-96 overflow-y-auto">
-          <h1 className="text-center my-4 font-semibold underline text-white">
-            Related Supplies
-          </h1>
-          {unApproved.map((r: TSupply) => (
-            <Related key={r._id} related={r}></Related>
-          ))}
+    <div className="bg-gray-300 py-12">
+      <div className="mx-6 md:mx-12 bg-white rounded-md p-2">
+        <div className="md:grid grid-cols-5">
+          <div className="col-span-4  p-2">
+            <Details supply={supply}></Details>
+          </div>
+          <div className="col-span-1 mt-3 md:mt-0 bg-gray-300 p-3 max-h-96 overflow-y-auto">
+            <h1 className="text-center my-4 font-semibold underline text-white">
+              Related Supplies
+            </h1>
+            {unApproved.map((r: TSupply) => (
+              <Related key={r._id} related={r}></Related>
+            ))}
+          </div>
         </div>
       </div>
     </div>
