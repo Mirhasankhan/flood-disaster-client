@@ -2,7 +2,7 @@
 
 ## Description
 
-My Awesome Website is a modern, responsive web application designed to showcase your portfolio, blog, and other personal projects. It features a sleek design, easy navigation, and is built with the latest web technologies to ensure a seamless user experience.
+Flood Disaster Donation is a dedicated platform to support communities affected by flood disasters. Our website allows users to make donations, stay informed with the latest news on ongoing relief efforts, and learn about various ways they can contribute to the cause. With a user-friendly interface and secure payment options, we strive to provide a reliable and efficient way to help those in need.
 
 ## Demo
 
