@@ -8,8 +8,10 @@ export type TSupply = {
   amount: string;
   category: string;
   image: Image;
-  isApproved?: boolean;
-  isApplied: boolean;
+  collectedAmount: string;
+  title: string;
+  overview: string;
+  description: string;
 };
 
 export interface Image {
@@ -17,7 +19,7 @@ export interface Image {
 }
 
 export type TSupplyCardProps = {
-  supply: TSupply;
+  campain: TSupply;
 };
 
 export type RecordType = {

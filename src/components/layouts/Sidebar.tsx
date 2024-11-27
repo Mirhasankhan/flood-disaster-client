@@ -35,7 +35,7 @@ const Sidebar = () => {
       break;
   }
   return (
-    <Sider breakpoint="lg" collapsedWidth="0">
+    <Sider className="min-h-screen" breakpoint="lg" collapsedWidth="0">
       <div
         style={{
           color: "white",
@@ -47,7 +47,7 @@ const Sidebar = () => {
         }}
       >
         <Link to="/">
-          <h1 className="font-semibold">FloodCare </h1>
+          <h1 className="font-semibold">AltruistHub </h1>
         </Link>
       </div>
       <Menu

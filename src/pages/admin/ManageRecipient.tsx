@@ -1,17 +1,17 @@
 import { Button } from "antd";
 import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
-import { useUpdateSupplyStatusMutation } from "../../redux/features/supply/supplyManagement.api";
 import {
   useApproveApplyMutation,
   useDenyMutation,
 } from "../../redux/features/users/userManagement.api";
 import { DataItem } from "../../types";
 import { toast } from "sonner";
+import { useUpdateCollectionMutation } from "../../redux/features/supply/supplyManagement.api";
 
 const ManageRecipient2 = () => {
   const { data } = useAppliesQuery("");
   const [denyApplication] = useDenyMutation();
-  const [updateStatus] = useUpdateSupplyStatusMutation();
+  const [updateStatus] = useUpdateCollectionMutation();
   const [approveApplication] = useApproveApplyMutation();
 
   const handleDeny = (id: string, referenceId: string) => {

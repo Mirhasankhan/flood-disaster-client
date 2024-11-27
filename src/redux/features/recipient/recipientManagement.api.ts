@@ -2,11 +2,11 @@ import { baseApi } from "../../api/baseApi";
 
 const recipientApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    addApply: builder.mutation({
-      query: (applyInfo) => ({
-        url: "/addApply",
+    addDonation: builder.mutation({
+      query: (info) => ({
+        url: "/donate",
         method: "POST",
-        body: applyInfo,
+        body: info,
       }),
       invalidatesTags: ["supply"],
     }),
@@ -35,7 +35,7 @@ const recipientApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useAddApplyMutation,
+  useAddDonationMutation,
   useAppliesQuery,
   useDeleteMutation,
   useSingleSupplyQuery,

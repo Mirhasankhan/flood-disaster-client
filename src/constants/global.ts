@@ -1,4 +1,4 @@
-export const categoryNames = ["All", "Hygine", "Food", "Dress"];
+export const categoryNames = ["Flood", "Winter", "Education", "Health"];
 
 export const categories = categoryNames.map((item) => ({
   value: item,

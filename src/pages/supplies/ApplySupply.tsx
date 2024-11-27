@@ -4,17 +4,17 @@ import PHInput from "../../components/form/PHInput";
 import PHForm from "../../components/form/PHForm";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
-import { useAddApplyMutation } from "../../redux/features/recipient/recipientManagement.api";
-import { useUpdateSupplyStatusMutation } from "../../redux/features/supply/supplyManagement.api";
 import { TSupplyCardProps } from "../../types";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
+import { useUpdateCollectionMutation } from "../../redux/features/supply/supplyManagement.api";
+import { useAddDonationMutation } from "../../redux/features/recipient/recipientManagement.api";
 
-const ApplySupply = ({ supply }: TSupplyCardProps) => {
+const ApplySupply = ({ campain }: TSupplyCardProps) => {
   const [open, setOpen] = useState(false);
   const { email, role } = useAppSelector(useCurrentUser);
-  const [addApplication] = useAddApplyMutation();
-  const [updateStatus] = useUpdateSupplyStatusMutation();
+  const [addDonation] = useAddDonationMutation();
+  const [updateStatus] = useUpdateCollectionMutation();
 
   const showDrawer = () => {
     setOpen(true);
@@ -28,23 +28,23 @@ const ApplySupply = ({ supply }: TSupplyCardProps) => {
     const newSupply = {
       ...values,
       isApproved: false,
-      referenceId: `ObjectId(${supply._id}`,
+      referenceId: `ObjectId(${campain._id}`,
     };
-    addApplication(newSupply);
-    updateStatus({ id: supply._id, isApplied: true });
+    addDonation(newSupply);
+    updateStatus({ id: campain._id, newAmount: 10 });
     onClose();
-    toast.success("Applied Successfully!");
+    toast.success("Donated Successfully, Thanks for your contribution!");
   };
 
   return (
     <>
       {role == "recipient" && (
         <Button
-          disabled={role !== "recipient" || supply.isApplied == true}
-          className="bg-purple-400 h-10"
+          disabled={role !== "recipient" || campain.isApplied == true}
+          className="bg-purple-400 h-10 font-medium text-white"
           onClick={showDrawer}
         >
-          {supply.isApplied == true ? "Already Applied" : "Apply Now"}
+          {campain.isApplied == true ? "Already Applied" : "Apply Now"}
         </Button>
       )}
       <Drawer
@@ -88,7 +88,7 @@ const ApplySupply = ({ supply }: TSupplyCardProps) => {
                 type="text"
                 name="supplyName"
                 label="Supply Name"
-                defaultValue={supply.supplyName}
+                defaultValue={campain.supplyName}
                 readOnly
               />
             </Col>

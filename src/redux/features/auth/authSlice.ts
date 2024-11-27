@@ -5,12 +5,14 @@ type TAuthState = {
   email: null | object;
   role: null | string;
   token: null | string;
+  name: null | string;
 };
 
 const initialState: TAuthState = {
   email: null,
   role: null,
   token: null,
+  name: null,
 };
 
 const authSlice = createSlice({
@@ -18,10 +20,11 @@ const authSlice = createSlice({
   initialState: initialState,
   reducers: {
     setUser: (state, action) => {
-      const { email, token, role } = action.payload;
+      const { email, token, role, name } = action.payload;
       state.email = email;
       state.role = role;
       state.token = token;
+      state.name = name;
     },
     logOut: (state) => {
       (state.email = null), (state.token = null), (state.role = null);

@@ -1,21 +1,20 @@
 import AboutUs from "./AboutUs";
 import Banner from "./Banner";
-import DonorTestimonials from "./DonorTestimonials";
 import Gallery from "./Gallery";
-import SimpleSlider from "./Slide";
-// import Supply from "./Supply";
-import Volunteer from "./Volunteer";
+import OngoingCampain from "./OngoingCampain";
+import Volunteers from "./volunteer/Volunteer";
+// import Volunteer from "./Volunteer";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      {/* <Supply></Supply> */}
-      <SimpleSlider></SimpleSlider>
+      <OngoingCampain></OngoingCampain>
       <AboutUs></AboutUs>
       <Gallery></Gallery>
-      <DonorTestimonials></DonorTestimonials>
-      <Volunteer></Volunteer>
+      {/* <DonorTestimonials></DonorTestimonials> */}
+      {/* <Volunteer></Volunteer> */}
+      <Volunteers></Volunteers>
     </div>
   );
 };

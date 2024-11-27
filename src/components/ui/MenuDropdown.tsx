@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logOut, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { Button } from "antd";
 import { CiLogout, CiCircleList } from "react-icons/ci";
 import { AlignRightOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { FaBorderAll } from "react-icons/fa";
@@ -16,9 +15,8 @@ import {
 
 const MenuDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { email, role } = useAppSelector(useCurrentUser);
-
   const dispatch = useAppDispatch();
+  const { email, role, name } = useAppSelector(useCurrentUser);
 
   return (
     <div className="relative">
@@ -27,11 +25,11 @@ const MenuDropdown = () => {
           <div className="hidden md:flex flex-row items-center gap-3 cursor-pointer">
             <div
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 bg-transparent hover:bg-gray-600 hover:text-white flex items-center gap-1 rounded-lg"
+              className="p-2 bg-gray-300 text-black flex items-center gap-1 rounded-lg"
             >
               <UserOutlined className="text-2xl bg-white p-2 text-gray-400 border rounded-full"></UserOutlined>
               <div className=" md:block">
-                <h1>Hello, {email ? email.toString() : ""}</h1>
+                <h1>Hello, {name ? name.toString() : ""}</h1>
               </div>
             </div>
           </div>
@@ -45,9 +43,7 @@ const MenuDropdown = () => {
         </div>
       ) : (
         <Link to="/login">
-          <Button className="text-white font-semibold bg-blue-600">
-            Login
-          </Button>
+          <button className="font-bold">Login</button>
         </Link>
       )}
       {isOpen && (
@@ -59,7 +55,7 @@ const MenuDropdown = () => {
             </h1>
           </Link>
           <Link
-            to={`/${role}/dashboard`}
+            to={`/${role}/insight`}
             className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
           >
             <MdDashboard className="text-2xl" />
@@ -93,6 +89,7 @@ const MenuDropdown = () => {
             <MdRateReview className="text-2xl" />
             <h1 className="hover:underline hover:text-red-500">My Reviews</h1>
           </Link>
+
           <div
             onClick={() => {
               dispatch(logOut());

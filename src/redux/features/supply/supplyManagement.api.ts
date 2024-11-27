@@ -4,7 +4,7 @@ const supplyApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     addSupply: builder.mutation({
       query: (supplyInfo) => ({
-        url: "/addSupply",
+        url: "/addCampain",
         method: "POST",
         body: supplyInfo,
       }),
@@ -12,28 +12,29 @@ const supplyApi = baseApi.injectEndpoints({
     }),
     supplies: builder.query({
       query: (email) => ({
-        url: `/supplies?email=${email}`,
+        url: `/campains?email=${email}`,
         method: "GET",
       }),
       providesTags: ["supply"],
     }),
-    singleSupply: builder.query({
+    singleCampain: builder.query({
       query: (id) => ({
-        url: `/supplies/${id}`,
+        url: `/campains/${id}`,
         method: "GET",
       }),
+      providesTags: ["supply"],
     }),
-    updateSupplyStatus: builder.mutation({
-      query: ({ id, isApplied }) => ({
-        url: `/supplies/${id}`,
+    updateCollection: builder.mutation({
+      query: ({ id, newAmount }) => ({
+        url: `/campains/${id}`,
         method: "PUT",
-        body: { isApplied },
+        body: { newAmount },
       }),
       invalidatesTags: ["supply"],
     }),
     delete: builder.mutation({
       query: (id) => ({
-        url: `/supplies/${id}`,
+        url: `/campains/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["supply"],
@@ -45,6 +46,6 @@ export const {
   useAddSupplyMutation,
   useSuppliesQuery,
   useDeleteMutation,
-  useSingleSupplyQuery,
-  useUpdateSupplyStatusMutation,
+  useSingleCampainQuery,
+  useUpdateCollectionMutation,
 } = supplyApi;

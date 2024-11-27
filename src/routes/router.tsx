@@ -6,8 +6,6 @@ import Login from "../pages/Login";
 import { routeGenerator } from "../utils/routeGenerator";
 import { adminPaths } from "./admin.routes";
 import { donorPaths } from "./donorRoutes";
-import Supplies from "../pages/supplies/Supplies";
-import SupplyDetails from "../pages/supplies/SupplyDetails";
 import { receipientPaths } from "./recipient.routes";
 import Home from "../pages/Home/Home";
 import Testimonials from "../pages/testimonials/Testimonials";
@@ -17,6 +15,8 @@ import DonorRoute from "./DonorRoute";
 import RecipientRoute from "./RecepientRoute";
 import Community from "../pages/community/Community";
 import About from "../pages/aboutUs/About";
+import Campains from "../pages/supplies/Campains";
+import CampainDetails from "../pages/supplies/CampainDetails";
 
 const router = createBrowserRouter([
   {
@@ -28,12 +28,12 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/supplies",
-        element: <Supplies></Supplies>,
+        path: "/campains",
+        element: <Campains></Campains>,
       },
       {
-        path: "/supplies/:id",
-        element: <SupplyDetails></SupplyDetails>,
+        path: "/campains/:id",
+        element: <CampainDetails></CampainDetails>,
       },
       {
         path: "/testimonials",

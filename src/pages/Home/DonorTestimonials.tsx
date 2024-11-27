@@ -22,8 +22,8 @@ const DonorTestimonials = () => {
               src={testi.image}
               alt=""
             />
-            <p className="py-2 font-semibold">{testi.title}</p>
-            <p className="pb-3">
+            <p className="py-2 font-medium">{testi.title}</p>
+            <p className="pb-3 text-gray-500">
               {testi.message.length > 80 ? (
                 <>{testi.message.slice(0, 80)}...</>
               ) : (

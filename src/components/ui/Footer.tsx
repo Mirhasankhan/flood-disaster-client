@@ -1,51 +1,76 @@
-import badge from "../../assets/images/main-logo.avif";
+import logo from "../../assets/images/main-logo.avif";
+import { IoLocationSharp } from "react-icons/io5";
 import {
-  GithubOutlined,
-  FacebookFilled,
-  InstagramFilled,
-  XOutlined,
-} from "@ant-design/icons";
+  FaFacebook,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4 pt-12 px-6">
-      <div className="container mx-auto  md:flex justify-between items-center">
-        <div className="text-left">
-          <div className="flex gap-2 items-center my-3">
-            <img className="h-8 rounded-full" src={badge} alt="" />
-            <p>FloodCare </p>
+    <div className="bg-[#1D1D1D]  text-white">
+      <div className="px-4 md:px-16 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <img src={logo} className="h-12 rounded-full w-12"></img>
+              <h1 className="text-2xl font-semibold">
+                Altruist<span className="text-blue-600">Hub</span>
+              </h1>
+            </div>
+            <div className="pt-2 flex items-center gap-1 font-semibold">
+              <IoLocationSharp className="text-blue-600 text-2xl"></IoLocationSharp>
+              <h1>44, Purana Paltan, Dhaka-1000</h1>
+            </div>
           </div>
-          <p className="text-sm pb-3">&copy; 2024 All rights reserved.</p>
+          <div>
+            <h1 className="font-medium text-xl">Sign Up For Our Newsletter</h1>
+            <p className="py-3">
+              Get notified about updates and be the first to get early access to
+              new Podcast episodes.
+            </p>
+            <div className="flex">
+              <input
+                className="border p-1 pr-4 md:pr-12 rounded-l-md"
+                type="text"
+                placeholder="Your Email Address"
+              />
+              <button className="bg-[#7E53D4] text-white px-6 rounded-r-md">
+                Subscribe
+              </button>
+            </div>
+          </div>
         </div>
-        <div>
-          <div className="flex gap-6 text-3xl mb-4">
-            <GithubOutlined />
-            <FacebookFilled></FacebookFilled>
-            <XOutlined></XOutlined>
-            <InstagramFilled></InstagramFilled>
+        <div className="grid gap-2 md:grid-cols-4 pt-8">
+          <div>
+            <h1>Contact Us</h1>
+            <p className="pt-2">AltruistHub@gmail.com</p>
           </div>
-          <div className="text-center md:text-right">
-            <ul className="flex justify-left md:justify-end space-x-4">
-              <li>
-                <a href="#" className="text-sm">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+          <div>
+            <p>About Us</p>
+            <p className="pt-2">Contact Us</p>
+          </div>
+          <div>
+            <p>Privacy Policy</p>
+            <p className="pt-2">Terms & Condition</p>
+          </div>
+
+          <div>
+            <h1>Social LInk</h1>
+            <div className="flex gap-6 text-2xl pt-2">
+              <FaTwitter className="text-blue-600 text-2xl" />
+              <FaFacebook className="text-blue-600 text-2xl" />
+              <FaLinkedinIn className="text-blue-600 text-2xl" />
+              <FaInstagram className="text-blue-600 text-2xl" />
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+      <div className="bg-[#7E53D4] text-center py-3 text-sm">
+        <p>&copy; 2024 | AltruistHub</p>
+      </div>
+    </div>
   );
 };
 

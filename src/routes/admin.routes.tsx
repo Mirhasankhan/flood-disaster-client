@@ -1,42 +1,37 @@
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import DonationDetails from "../pages/admin/DonationDetails";
 import ManageRecipient from "../pages/admin/ManageRecipient";
+import AddCampain from "../pages/donor/AddCampain";
 
 export const adminPaths = [
   {
-    name: "Dashboard",
-    path: "dashboard",
+    name: "Insight",
+    path: "insight",
     element: <AdminDashboard></AdminDashboard>,
   },
-  // {
-  //   name: "User Management",
-  //   children: [
-  //     {
-  //       name: "Donor Details",
-  //       path: "donor-details",
-  //       element: "manage donor",
-  //     },
-  //     {
-  //       name: "Service Details",
-  //       path: "service-details",
-  //       element: "manage service",
-  //     },
-  //   ],
-  // },
   {
-    name: "Service Management",
-    children: [
-      {
-        name: "Donation Details",
-        path: "donation-details",
-        element: <DonationDetails></DonationDetails>,
-      },
-
-      {
-        name: "Manage Recipient",
-        path: "manage-recipient",
-        element: <ManageRecipient></ManageRecipient>,
-      },
-    ],
+    name: "Campains",
+    path: "campains",
+    element: <DonationDetails></DonationDetails>,
+  },
+  {
+    name: "News",
+    path: "news",
+    element: <ManageRecipient></ManageRecipient>,
+  },
+  {
+    name: "Finalcial Stats",
+    path: "financial-stats",
+    element: <ManageRecipient></ManageRecipient>,
+  },
+  {
+    name: "Add Campain",
+    path: "add-campain",
+    element: <AddCampain></AddCampain>,
+  },
+  {
+    name: "Add News",
+    path: "add-news",
+    element: <ManageRecipient></ManageRecipient>,
   },
 ];

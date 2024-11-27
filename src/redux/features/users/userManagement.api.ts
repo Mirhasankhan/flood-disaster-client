@@ -13,6 +13,7 @@ const usersApi = baseApi.injectEndpoints({
         url: `/leaderboard`,
         method: "GET",
       }),
+      providesTags: ["supply"],
     }),
     deny: builder.mutation({
       query: (id) => ({

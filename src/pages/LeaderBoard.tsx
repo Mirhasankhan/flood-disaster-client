@@ -3,6 +3,7 @@ import { GiQueenCrown } from "react-icons/gi";
 
 const LeaderBoard = () => {
   const { data } = useLeaderboardQuery("");
+  console.log(data?.leaderboard);
 
   return (
     <div>
@@ -17,13 +18,13 @@ const LeaderBoard = () => {
                 <th>Rank</th>
                 <th>Donor Name</th>
                 <th>Donor Email</th>
-                <th>Number Of Donation</th>
+                <th>Amount Of Donation</th>
               </tr>
             </thead>
             <tbody>
-              {data?.map(
+              {data?.leaderboard.map(
                 (
-                  leader: { email: string; frequency: number; name: string },
+                  leader: { _id: string; totalAmount: number; name: string },
                   index: string
                 ) => (
                   <tr key={index}>
@@ -32,8 +33,8 @@ const LeaderBoard = () => {
                       {leader.name}
                       <GiQueenCrown className="text-orange-400 text-xl" />
                     </td>
-                    <td>{leader.email}</td>
-                    <td>{leader.frequency}</td>
+                    <td>{leader._id}</td>
+                    <td>${leader.totalAmount}</td>
                   </tr>
                 )
               )}

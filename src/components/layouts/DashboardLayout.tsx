@@ -12,9 +12,11 @@ const DashboardLayout = () => {
         <Header style={{ padding: 0 }} />
         <Content style={{ margin: "24px 16px 0" }}>
           <div
+            className="min-h-screen"
             style={{
-              padding: 24,
-              minHeight: 650,
+              padding: "16px",
+              backgroundColor: "transparent",
+              backgroundImage: "linear-gradient(to right, #211e3d, #561c3e)",
             }}
           >
             <Outlet></Outlet>

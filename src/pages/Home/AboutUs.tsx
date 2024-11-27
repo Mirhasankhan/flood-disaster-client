@@ -1,48 +1,68 @@
 import aboutPic from "../../assets/images/aboutUs.avif";
 import { CheckCircleOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
-import Button from "../../components/ui/Button";
+import { useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const AboutUs = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["0 1", "0.5 1"],
+  });
+
+  const opacityValue = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const yValue = useTransform(scrollYProgress, [0, 1], [200, 0]);
   return (
-    <div>
+    <motion.div
+      ref={containerRef}
+      style={{ y: yValue, opacity: opacityValue, transition: "2s" }}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-6 md:mx-12 pt-8">
         <div>
-          <p className="text-xl font-bold underline text-red-400 italic">
+          <h1 className="bg-blue-600 h-6 w-6"></h1>
+          <h1 className="text-orange-600 text-xl font-semibold py-2">
             About Us
-          </p>
+          </h1>
           <h1 className="text-3xl font-bold py-2">
             Empowering Communities, One Meal at a Time
           </h1>
           <p className="font-medium">
-            At FloodCare, our mission is clear to alleviate the suffering caused
-            by floods through efficient relief distribution and supplies
-            management. We believe that in times of crisis, access to nutritious
-            food and essential supplies is essential for the well-being and
-            resilience of affected communities.
+            AltruistHub is a non-political, non-profit organization dedicated to
+            flood disaster, education, and comprehensive humanitarian service.
+            It strives to serve distressed humanity, reform society, instill
+            noble moral values, create employment opportunities, alleviate
+            poverty, run multifaceted education projects, distribute relief,
+            provide low-cost or free healthcare services, implement various
+            programs to foster a clean mindset, and, above all, use verbal,
+            written. Through these efforts, AltruistHub aims to build an ideal
+            welfare society to the best of its ability.
           </p>
-          <div className="py-1 mt-6">
+          <div className="py-1 mt-4">
             <div className="flex items-center">
               <CheckCircleOutlined className="text-red-400 text-xl pr-1" />
-              Charity For Medical Health
+              Charity For Flood Effected
             </div>
           </div>
           <div className="py-1">
             <div className="flex items-center">
               <CheckCircleOutlined className="text-red-400 text-xl pr-1" />
-              Charity For Better Hygine
+              Charity For Education
             </div>
           </div>
           <div className="py-1">
             <div className="flex items-center">
               <CheckCircleOutlined className="text-red-400 text-xl pr-1" />
-              Charity For Baby's Hunger
+              Charity For Unemployed
             </div>
           </div>
 
-          <Link className="" to={"/about-us"}>
-            <Button bgColor="bg-green-400 mt-3">Learn More</Button>
-          </Link>
+          <button className="bg-blue-600 mt-6 text-white py-2 px-8 text-xl mr-2 rounded-md font-medium">
+            Donate
+          </button>
+          <button className="bg-gray-600 mt-6 text-white py-2 px-4 text-xl mr-2 rounded-md font-medium">
+            Learn More
+          </button>
         </div>
         <div className="relative">
           <img className="rounded-lg w-full" src={aboutPic} alt="" />
@@ -52,7 +72,7 @@ const AboutUs = () => {
           </h1>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

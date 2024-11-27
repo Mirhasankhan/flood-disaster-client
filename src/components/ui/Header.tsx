@@ -2,99 +2,78 @@ import logo from "../../assets/images/main-logo.avif";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import MenuDropdown from "./MenuDropdown";
-import { Button } from "antd";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setUser, useCurrentUser } from "../../redux/features/auth/authSlice";
-import { useUpdateMutation } from "../../redux/features/auth/authApi";
-import Swal from "sweetalert2";
-import { useAppliesQuery } from "../../redux/features/recipient/recipientManagement.api";
-import { useContext } from "react";
-import { ThemeContext } from "../providers/ThemeProvider";
-import { FaRegMoon } from "react-icons/fa";
-import { MdLightMode } from "react-icons/md";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedinIn,
+  FaMailBulk,
+  FaPhone,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Header = () => {
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-  const dispatch = useAppDispatch();
-  const { email, role, token } = useAppSelector(useCurrentUser);
-  const [updateUser] = useUpdateMutation();
-  const { data } = useAppliesQuery(email);
-
-  const handleBecomeDonor = async () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this again!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Become Donor!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        updateUser({ email: email, role: "donor" });
-        dispatch(setUser({ email: email, role: "donor", token: token }));
-        Swal.fire({
-          title: "Congratulations!",
-          text: "You Successfully Became A Donor.",
-          icon: "success",
-        });
-      }
-    });
-  };
-
   return (
-    <div
-      style={{
-        background: isDarkMode ? "white" : "black",
-        color: isDarkMode ? "black" : "white",
-      }}
-      className="sticky top-0 z-10 w-full bg-white"
-    >
-      <nav className="flex justify-between md:px-8 px-2 h-16 md:h-24 items-center">
-        <NavLink className="text-xl md:text-2xl" to="/">
-          <div className="flex gap-1 items-center">
-            <img
-              className="h-8 w-8 md:h-12 md:w-12 rounded-full"
-              src={logo}
-              alt="FloodCare Logo"
-            />
-            <h1 className="text-green-300 font-semibold italic">FloodCare</h1>
-          </div>
-        </NavLink>
-        <div className="md:flex gap-4 hidden">
-          <NavLink
-            to="supplies"
-            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
-          >
-            All Supplies
-          </NavLink>
-          <Link
-            to="/leaderboard"
-            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
-          >
-            Leaderboard
-          </Link>
-          {/* <Link
-            to="/community"
-            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
-          >
-            Community
-          </Link> */}
-          <Link
-            to="/about-us"
-            className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
-          >
-            About Us
-          </Link>
+    <div className=" md:px-8 px-2 ">
+      <div className="py-4 flex border-b justify-between">
+        <div>
+          <h6 className="text-gray-400 text-sm inline-flex items-center gap-3">
+            <FaPhone className="w-4 h-4" />
+            1-830-760-660
+          </h6>
+          <h6 className="text-gray-400 text-sm inline-flex items-center gap-2 md:ml-4">
+            <FaMailBulk className="w-4 h-4" />
+            AltruistHub@gmail.com
+          </h6>
         </div>
-        <div className="flex gap-2 items-center">
-          {role === "recipient" && data?.length < 1 && (
-            <Button className="text-green-400" onClick={handleBecomeDonor}>
-              Become Donor
-            </Button>
-          )}
-          <MenuDropdown />
-          {isDarkMode ? (
+        <div className="flex items-center gap-2 md:gap-4">
+          <FaTwitter className="text-blue-600 text-xl" />
+          <FaFacebook className="text-blue-600 text-xl" />
+          <FaLinkedinIn className="text-blue-600 text-xl" />
+          <FaInstagram className="text-blue-600 text-xl" />
+        </div>
+      </div>
+      <div className="w-full">
+        <nav className="flex justify-between  items-center">
+          <NavLink className="text-xl md:text-2xl" to="/">
+            <div className="flex items-center">
+              <img
+                className="h-8 w-8 md:h-24 md:w-24 rounded-full"
+                src={logo}
+                alt="AltruistHub Logo"
+              />
+              <h1 className="text-green-300 text-3xl font-semibold italic">
+                Altruist<span className="text-blue-600">Hub</span>
+              </h1>
+            </div>
+          </NavLink>
+          <div className="md:flex gap-4 hidden items-center">
+            <NavLink
+              to="campains"
+              className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+            >
+              Campains
+            </NavLink>
+            <Link
+              to="/leaderboard"
+              className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+            >
+              Best Donors
+            </Link>
+            <Link
+              to="/community"
+              className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+            >
+              Our Team
+            </Link>
+            <Link
+              to="/news"
+              className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+            >
+              News
+            </Link>
+            <div className="flex gap-2 items-center">
+              <MenuDropdown />
+              {/* {isDarkMode ? (
             <div title="Switch To Light Mode">
               <button className="text-xl" onClick={toggleTheme}>
                 <MdLightMode />
@@ -106,9 +85,18 @@ const Header = () => {
                 <FaRegMoon />
               </button>
             </div>
-          )}
-        </div>
-      </nav>
+          )} */}
+            </div>
+          </div>
+          <div className="bg-gray-100 px-12 inset-y-0 -skew-x-12 py-5">
+            <Link to="/campains">
+              <button className="bg-blue-700 rounded-md text-white text-xl font-medium p-3">
+                Donate Now
+              </button>
+            </Link>
+          </div>
+        </nav>
+      </div>
     </div>
   );
 };

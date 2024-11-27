@@ -21,7 +21,7 @@ const PHInput = ({
   placeholder,
 }: TInputProps) => {
   return (
-    <div style={{ marginBottom: "20px" }}>
+    <div style={{ marginBottom: "40px" }}>
       <Controller
         name={name}
         defaultValue={defaultValue}
@@ -33,7 +33,7 @@ const PHInput = ({
               id={name}
               size="large"
               disabled={disabled}
-              className="bg-gray-100 border-2 border-green-200"
+              className="bg-transparent  placeholder:text-white pl-10 focus:bg-transparent hover:bg-transparent hover:placeholder:hidden text-white"
               required
               readOnly={readOnly}
               placeholder={placeholder}
