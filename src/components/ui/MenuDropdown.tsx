@@ -1,11 +1,10 @@
-import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logOut, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { CiLogout, CiCircleList } from "react-icons/ci";
 import { AlignRightOutlined, CloseCircleOutlined } from "@ant-design/icons";
-import { FaBorderAll } from "react-icons/fa";
+import { FaBorderAll, FaUser } from "react-icons/fa";
 import {
   MdDashboard,
   MdOutlineManageAccounts,
@@ -27,7 +26,7 @@ const MenuDropdown = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 bg-gray-300 text-black flex items-center gap-1 rounded-lg"
             >
-              <UserOutlined className="text-2xl bg-white p-2 text-gray-400 border rounded-full"></UserOutlined>
+              <FaUser className="text-xl text-white rounded-full"></FaUser>
               <div className=" md:block">
                 <h1>Hello, {name ? name.toString() : ""}</h1>
               </div>
@@ -47,7 +46,7 @@ const MenuDropdown = () => {
         </Link>
       )}
       {isOpen && (
-        <div className="absolute top-[44px] border md:top-[76px] right-0 bg-white p-2 md:p-6 rounded-b-md min-w-[250px]">
+        <div className="absolute top-[44px] border md:top-[41px] right-0 bg-white p-2 md:p-6 rounded-b-md min-w-[250px]">
           <Link to="/" className="flex gap-2 items-center text-gray-700">
             <MdOutlineManageAccounts className="text-2xl" />
             <h1 className="hover:underline hover:text-red-500">

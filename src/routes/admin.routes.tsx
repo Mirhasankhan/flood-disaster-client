@@ -1,6 +1,9 @@
 import AdminDashboard from "../pages/admin/AdminDashboard";
-import DonationDetails from "../pages/admin/DonationDetails";
-import AddCampain from "../pages/donor/AddCampain";
+import CampainDetails from "../pages/admin/CampainDetails";
+import AddCampain from "../pages/admin/AddCampain";
+import AllNews from "../pages/admin/AllNews";
+import FinancialStats from "../pages/admin/FinancialStats";
+import AddNews from "../pages/admin/AddNews";
 
 export const adminPaths = [
   {
@@ -11,17 +14,17 @@ export const adminPaths = [
   {
     name: "Campains",
     path: "campains",
-    element: <DonationDetails></DonationDetails>,
+    element: <CampainDetails></CampainDetails>,
   },
   {
     name: "News",
     path: "news",
-    element: "news",
+    element: <AllNews></AllNews>,
   },
   {
     name: "Finalcial Stats",
     path: "financial-stats",
-    element: "fianali",
+    element: <FinancialStats></FinancialStats>,
   },
   {
     name: "Add Campain",
@@ -31,6 +34,6 @@ export const adminPaths = [
   {
     name: "Add News",
     path: "add-news",
-    element: "add new",
+    element: <AddNews></AddNews>,
   },
 ];

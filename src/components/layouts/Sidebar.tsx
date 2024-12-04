@@ -4,15 +4,14 @@ import { useCurrentRole } from "../../redux/features/auth/authSlice";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { donorPaths } from "../../routes/donorRoutes";
 import { adminPaths } from "../../routes/admin.routes";
-import { receipientPaths } from "../../routes/recipient.routes";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/main-logo.avif";
 
 const { Sider } = Layout;
 
 const userRole = {
   ADMIN: "admin",
   DONOR: "donor",
-  RECIPIENT: "recipient",
 };
 
 const Sidebar = () => {
@@ -26,9 +25,6 @@ const Sidebar = () => {
       break;
     case userRole.DONOR:
       sidebarItems = sidebarItemsGenerator(donorPaths, userRole.DONOR);
-      break;
-    case userRole.RECIPIENT:
-      sidebarItems = sidebarItemsGenerator(receipientPaths, userRole.RECIPIENT);
       break;
 
     default:
@@ -46,8 +42,9 @@ const Sidebar = () => {
           alignItems: "center",
         }}
       >
-        <Link to="/">
-          <h1 className="font-semibold">AltruistHub </h1>
+        <Link className="flex items-center gap-1" to="/">
+          <img className="rounded-full h-8 w-8" src={logo} alt="" />
+          <h1 className="font-semibold text-xl">AltruistHub </h1>
         </Link>
       </div>
       <Menu

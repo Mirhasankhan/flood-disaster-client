@@ -6,13 +6,11 @@ import Login from "../pages/Login";
 import { routeGenerator } from "../utils/routeGenerator";
 import { adminPaths } from "./admin.routes";
 import { donorPaths } from "./donorRoutes";
-import { receipientPaths } from "./recipient.routes";
 import Home from "../pages/Home/Home";
 import Testimonials from "../pages/testimonials/Testimonials";
 import LeaderBoard from "../pages/LeaderBoard";
 import AdminRoute from "./AdminRoute";
 import DonorRoute from "./DonorRoute";
-import RecipientRoute from "./RecepientRoute";
 import Community from "../pages/community/Community";
 import About from "../pages/aboutUs/About";
 import Campains from "../pages/supplies/Campains";
@@ -70,15 +68,6 @@ const router = createBrowserRouter([
       </DonorRoute>
     ),
     children: routeGenerator(donorPaths),
-  },
-  {
-    path: "/recipient",
-    element: (
-      <RecipientRoute>
-        <DashboardLayout></DashboardLayout>
-      </RecipientRoute>
-    ),
-    children: routeGenerator(receipientPaths),
   },
 
   {

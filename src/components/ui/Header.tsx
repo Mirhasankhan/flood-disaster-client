@@ -13,8 +13,8 @@ import {
 
 const Header = () => {
   return (
-    <div className=" md:px-8 px-2 ">
-      <div className="py-4 flex border-b justify-between">
+    <div>
+      <div className="py-2 md:px-8 px-2 flex border-b justify-between">
         <div>
           <h6 className="text-gray-400 text-sm inline-flex items-center gap-3">
             <FaPhone className="w-4 h-4" />
@@ -32,16 +32,16 @@ const Header = () => {
           <FaInstagram className="text-blue-600 text-xl" />
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full md:px-8 px-2">
         <nav className="flex justify-between  items-center">
           <NavLink className="text-xl md:text-2xl" to="/">
             <div className="flex items-center">
               <img
-                className="h-8 w-8 md:h-24 md:w-24 rounded-full"
+                className="h-8 w-8 md:h-20 md:w-20 rounded-full"
                 src={logo}
                 alt="AltruistHub Logo"
               />
-              <h1 className="text-green-300 text-3xl font-semibold italic">
+              <h1 className="text-green-300 text-2xl font-semibold italic">
                 Altruist<span className="text-blue-600">Hub</span>
               </h1>
             </div>
@@ -88,7 +88,7 @@ const Header = () => {
           )} */}
             </div>
           </div>
-          <div className="bg-gray-100 px-12 inset-y-0 -skew-x-12 py-5">
+          <div className="bg-gray-100 px-12 inset-y-0 -skew-x-12 py-3">
             <Link to="/campains">
               <button className="bg-blue-700 rounded-md text-white text-xl font-medium p-3">
                 Donate Now

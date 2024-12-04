@@ -1,9 +1,9 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
-import { Button } from "antd";
 import { useAddTestimonialMutation } from "../../redux/features/testimonials/testimonialsManagementApi";
 import { TTestimonial } from "../../types/Tetimonial.type";
+import { toast } from "sonner";
 
 const CreateTestimonial = () => {
   const { email } = useAppSelector(useCurrentUser);
@@ -20,83 +20,122 @@ const CreateTestimonial = () => {
   });
 
   const onSubmit: SubmitHandler<TTestimonial> = (data) => {
+    console.log(data);
     newTestimonial(data);
     reset();
+    toast.success("Review Given Succesfully");
   };
   return (
     <div>
-      <h1 className="text-center text-4xl font-semibold py-8">Testimonials</h1>
+      <h1 className="text-center text-4xl font-semibold text-white py-8">
+        Testimonials
+      </h1>
       <form
-        className="w-3/4  border mx-auto p-5"
         onSubmit={handleSubmit(onSubmit)}
+        className="space-y-4 border p-4 rounded-md"
       >
-        <div className="flex gap-4 w-full">
-          <div className="w-full">
-            <label className="pb-1 block">Title</label>
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          <div>
+            <label className="block text-white font-medium mb-1">Title</label>
             <input
-              className="border p-2 w-full rounded-md"
-              placeholder="title"
               type="text"
-              {...register("title", { required: true })}
+              {...register("title", { required: "title is required" })}
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="Enter Title"
             />
-            {errors.title && <p className="text-red-500">Title is required</p>}
+            {errors.title && (
+              <p className="text-red-500 text-sm">
+                {errors.title.message as string}
+              </p>
+            )}
           </div>
-          <div className="w-full">
-            <label className="pb-1 block">Email</label>
+          <div>
+            <label className="block text-white font-medium mb-1">Email</label>
             <input
-              className="border p-2 w-full rounded-md"
               defaultValue={email ? email.toString() : ""}
               type="email"
-              {...register("email", { required: true })}
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email address",
+                },
+              })}
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="Enter your email"
             />
-          </div>
-        </div>
-        <div className="flex gap-4 w-full mt-6">
-          <div className="w-full">
-            <label className="pb-1 block">Rating:</label>
-            <select
-              className="w-full border p-2 rounded-md"
-              {...register("rating", { required: true })}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            {errors.rating && (
-              <span className="text-red-500">Rating is required</span>
+            {errors.email && (
+              <p className="text-red-500 text-sm">
+                {errors.email.message as string}
+              </p>
             )}
           </div>
-          <div className="w-full">
-            <label className="pb-1 block">Donor Image</label>
+        </div>
+        <div className="grid grid-cols-2 mb-8 gap-4">
+          <div>
+            <label className="block text-white font-medium mb-1">Rating</label>
             <input
-              className="border p-2 w-full rounded-md"
-              type="url"
-              placeholder="imageURL"
-              {...register("image", { required: true })}
+              type="number"
+              {...register("rating", {
+                required: "Rating is required",
+                min: {
+                  value: 1,
+                  message: "Rating must be at least 1",
+                },
+                max: {
+                  value: 5,
+                  message: "Rating must not exceed 5",
+                },
+              })}
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="Enter rating"
             />
+            {errors.rating && (
+              <p className="text-red-500 text-sm">
+                {errors.rating.message as string}
+              </p>
+            )}
           </div>
-        </div>
-        <div className="mt-6">
-          <div className="w-full">
-            <label className="pb-1 block">Content</label>
-            <textarea
-              className="w-full p-3 rounded-md"
-              placeholder="Write Your Thoughts"
-              {...register("message", { required: true })}
+          <div>
+            <label className="block text-white font-medium mb-1">Image</label>
+            <input
+              type="url"
+              {...register("image", {
+                required: "image is required",
+              })}
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="Enter Image URL"
             />
-            {errors.message && (
-              <p className="text-red-500">Message is required</p>
+            {errors.image && (
+              <p className="text-red-500 text-sm">
+                {errors.image.message as string}
+              </p>
             )}
           </div>
         </div>
-        <Button
-          className="mt-4 w-full bg-green-400 text-white"
-          htmlType="submit"
+        <div>
+          <label className="block text-white font-medium mb-1">
+            Your Message
+          </label>
+          <textarea
+            {...register("message", {
+              required: "Message is required",
+            })}
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Enter Your Thought"
+          />
+          {errors.message && (
+            <p className="text-red-500 text-sm">
+              {errors.message.message as string}
+            </p>
+          )}
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
         >
-          Submit Testimonial
-        </Button>
+          Submit
+        </button>
       </form>
     </div>
   );

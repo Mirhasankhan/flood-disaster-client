@@ -1,7 +1,7 @@
 import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
-import { DataItem } from "../../types";
+import { TSupply } from "../../types";
 
-const DonationDetails = () => {
+const CampainDetails = () => {
   const { data } = useSuppliesQuery("");
   return (
     <div>
@@ -17,12 +17,12 @@ const DonationDetails = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.map((donor: DataItem, i: string) => (
+            {data?.map((donor: TSupply, i: string) => (
               <tr key={donor._id} className="hover">
                 <th>{i + 1}</th>
-                <td>{donor.name}</td>
-                <td>{donor.email}</td>
-                <td>{donor.supplyName}</td>
+                <td>{donor.title}</td>
+                <td>{donor.amount}</td>
+                <td>{donor.overview}</td>
                 <td>{donor.category}</td>
               </tr>
             ))}
@@ -33,4 +33,4 @@ const DonationDetails = () => {
   );
 };
 
-export default DonationDetails;
+export default CampainDetails;

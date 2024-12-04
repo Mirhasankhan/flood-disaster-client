@@ -6,14 +6,14 @@ const LeaderBoard = () => {
   console.log(data?.leaderboard);
 
   return (
-    <div>
-      <h1 className="text-center text-2xl font-semibold py-6 md:text-4xl">
+    <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] min-h-screen">
+      <h1 className="text-center text-2xl text-white font-semibold py-6 md:text-4xl">
         Donor Leaderboard
       </h1>
-      <div className="w-4/5 md:w-2/3 mx-auto bg-purple-200 p-4 rounded-md ">
+      <div className="w-4/5 md:w-3/4 mx-auto bg-white p-2 rounded-md ">
         <div className="overflow-x-auto">
           <table className="table">
-            <thead className="bg-gray-600 text-white">
+            <thead className="bg-blue-600  text-white">
               <tr>
                 <th>Rank</th>
                 <th>Donor Name</th>
@@ -25,10 +25,17 @@ const LeaderBoard = () => {
               {data?.leaderboard.map(
                 (
                   leader: { _id: string; totalAmount: number; name: string },
-                  index: string
+                  index: number
                 ) => (
-                  <tr key={index}>
-                    <th>{index + 1}</th>
+                  <tr
+                    className={` ${
+                      index % 2 === 0
+                        ? "bg-gray-500 text-white"
+                        : "bg-white text-black"
+                    }`}
+                    key={index}
+                  >
+                    <th>Rank 0{index + 1}</th>
                     <td className="flex items-center gap-2">
                       {leader.name}
                       <GiQueenCrown className="text-orange-400 text-xl" />

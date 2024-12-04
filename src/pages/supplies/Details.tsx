@@ -28,7 +28,7 @@ const Details = ({ campain }: TSupplyCardProps) => {
             />
           </div>
         </div>
-        <div className="col-span-2 bg-white py-6 md:h-[440px] rounded-md">
+        <div className="col-span-2 bg-white py-4 md:h-[440px] rounded-md">
           <div className="p-4 border-b-2">
             <h1>
               <span className="text-2xl font-semibold">{title}</span>

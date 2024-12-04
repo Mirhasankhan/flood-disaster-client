@@ -10,7 +10,13 @@ const CampainDetails = () => {
 
   const location = useLocation();
   const { supply } = location.state;
-  const { data: singleCampain } = useSingleCampainQuery(supply._id);
+  const { data: singleCampain, isLoading } = useSingleCampainQuery(supply._id);
+
+  if (isLoading) {
+    return (
+      <p className="text-center text-red-500 text-xl pt-24">Loading......</p>
+    );
+  }
 
   return (
     <div className="bg-gray-100 py-12">

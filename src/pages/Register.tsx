@@ -18,7 +18,7 @@ const Register = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const newAccount = {
       ...data,
-      role: "admin",
+      role: "donor",
     };
     registerAccount(newAccount);
     toast.success("Account Registered Successfully");

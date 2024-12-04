@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const CampainCard = ({ campain }: TSupplyCardProps) => {
-  const { overview, image, collectedAmount, category, amount, _id } = campain;
+  const { overview, image, collectedAmount, category, amount, _id, title } =
+    campain;
 
   return (
     <div className="bg-white shadow-md border overflow-hidden rounded-md">
@@ -14,15 +15,16 @@ const CampainCard = ({ campain }: TSupplyCardProps) => {
         alt=""
       />
       <div className="p-3">
-        <h1 className="pt-3 font-bold">Cash Contributions</h1>
+        <h1 className="pt-3 font-bold">{title}</h1>
         <Progress
           percent={(Number(collectedAmount) / Number(amount)) * 100}
           showInfo={false}
         />
         <p className="py-2">
-          ${collectedAmount} donated of ${amount} goal
+          <span className="font-semibold">${collectedAmount}</span> donated of
+          <span className="font-semibold"> ${amount}</span> goal
         </p>
-        <p>Category: {category} donation</p>
+        <p className="font-semibold">Category: {category} donation</p>
 
         <div className="py-2">
           <h1 className=" font-medium">

@@ -11,10 +11,8 @@ const Home = () => {
       <Banner></Banner>
       <OngoingCampain></OngoingCampain>
       <AboutUs></AboutUs>
-      <Gallery></Gallery>
-      {/* <DonorTestimonials></DonorTestimonials> */}
-      {/* <Volunteer></Volunteer> */}
       <Volunteers></Volunteers>
+      <Gallery></Gallery>
     </div>
   );
 };
