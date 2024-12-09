@@ -80,7 +80,7 @@ import PaymentModal from "../../components/ui/PaymentModal";
 const Details = ({ campain }: TSupplyCardProps) => {
   const {
     amount,
-    category,
+
     image,
     title,
     overview,

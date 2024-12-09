@@ -4,7 +4,7 @@ import moment from "moment";
 import { TSupply } from "../types";
 
 const News = () => {
-  const { data: news } = useAllNewsQuery();
+  const { data: news } = useAllNewsQuery("");
   return (
     <div className="bg-gray-100 min-h-screen px-2 md:px-8">
       <h1>all news here</h1>
