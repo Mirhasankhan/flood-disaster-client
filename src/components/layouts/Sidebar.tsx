@@ -5,7 +5,7 @@ import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { donorPaths } from "../../routes/donorRoutes";
 import { adminPaths } from "../../routes/admin.routes";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/main-logo.avif";
+import logo from "../../assets/images/logo3.jpeg";
 
 const { Sider } = Layout;
 

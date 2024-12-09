@@ -15,8 +15,9 @@ const DashboardLayout = () => {
             className="min-h-screen"
             style={{
               padding: "16px",
-              backgroundColor: "transparent",
-              backgroundImage: "linear-gradient(to right, #211e3d, #561c3e)",
+              backgroundColor: "gray",
+              // backgroundImage: "white",
+              // backgroundImage: "linear-gradient(to right, #211e3d, #561c3e)",
             }}
           >
             <Outlet></Outlet>

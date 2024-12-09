@@ -1,7 +1,8 @@
-import logo from "../../assets/images/main-logo.avif";
+import logo from "../../assets/images/logo3.jpeg";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import MenuDropdown from "./MenuDropdown";
+// import { Button, Dropdown } from "antd";
 import {
   FaFacebook,
   FaInstagram,
@@ -12,6 +13,20 @@ import {
 } from "react-icons/fa";
 
 const Header = () => {
+  // const items = [
+  //   {
+  //     key: "1",
+  //     label: <NavLink to="/campains">Ongoing Campaigns</NavLink>,
+  //   },
+  //   {
+  //     key: "2",
+  //     label: <NavLink to="/upcoming-campains">Upcoming Campaigns</NavLink>,
+  //   },
+  //   {
+  //     key: "3",
+  //     label: <NavLink to="/previous-campains">Previous Campaigns</NavLink>,
+  //   },
+  // ];
   return (
     <div>
       <div className="py-2 md:px-8 px-2 flex border-b justify-between">
@@ -37,11 +52,11 @@ const Header = () => {
           <NavLink className="text-xl md:text-2xl" to="/">
             <div className="flex items-center">
               <img
-                className="h-8 w-8 md:h-20 md:w-20 rounded-full"
+                className="h-8 w-8 md:h-12 md:w-12 rounded-full"
                 src={logo}
                 alt="AltruistHub Logo"
               />
-              <h1 className="text-green-300 text-2xl font-semibold italic">
+              <h1 className="text-black text-3xl font-semibold">
                 Altruist<span className="text-blue-600">Hub</span>
               </h1>
             </div>
@@ -53,6 +68,9 @@ const Header = () => {
             >
               Campains
             </NavLink>
+            {/* <Dropdown menu={{ items }} placement="bottomLeft">
+              <button className="font-semibold">Campains</button>
+            </Dropdown> */}
             <Link
               to="/leaderboard"
               className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
@@ -60,7 +78,7 @@ const Header = () => {
               Best Donors
             </Link>
             <Link
-              to="/community"
+              to="/team"
               className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
             >
               Our Team

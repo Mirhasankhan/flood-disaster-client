@@ -1,9 +1,10 @@
-import logo from "../../assets/images/main-logo.avif";
+import logo from "../../assets/images/logo3.jpeg";
 import { IoLocationSharp } from "react-icons/io5";
 import {
   FaFacebook,
   FaInstagram,
   FaLinkedinIn,
+  FaMailBulk,
   FaTwitter,
 } from "react-icons/fa";
 
@@ -22,6 +23,10 @@ const Footer = () => {
             <div className="pt-2 flex items-center gap-1 font-semibold">
               <IoLocationSharp className="text-blue-600 text-2xl"></IoLocationSharp>
               <h1>44, Purana Paltan, Dhaka-1000</h1>
+            </div>
+            <div className="pt-3 flex items-center gap-2 font-semibold">
+              <FaMailBulk className="text-blue-600 text-2xl"></FaMailBulk>
+              <p>AltruistHub@gmail.com</p>
             </div>
           </div>
           <div>
@@ -44,15 +49,15 @@ const Footer = () => {
         </div>
         <div className="grid gap-2 md:grid-cols-4 pt-8">
           <div>
-            <h1>Contact Us</h1>
-            <p className="pt-2">AltruistHub@gmail.com</p>
+            <h1>Privacy Policy</h1>
+            <p className="pt-2">Terms & Condition</p>
           </div>
           <div>
             <p>About Us</p>
             <p className="pt-2">Contact Us</p>
           </div>
           <div>
-            <p>Privacy Policy</p>
+            <p>Help Center</p>
             <p className="pt-2">Terms & Condition</p>
           </div>
 

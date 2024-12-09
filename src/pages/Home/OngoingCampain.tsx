@@ -19,14 +19,14 @@ const OngoingCampain = () => {
   const yValue = useTransform(scrollYProgress, [0, 1], [200, 0]);
 
   return (
-    <div className="p-12">
-      <div className="grid grid-cols-2">
+    <div className="pt-12 px-4 md:px-12">
+      <div className="grid md:grid-cols-2 gap-6">
         <div>
           <h1 className="bg-blue-600 h-6 w-6"></h1>
           <h1 className="text-orange-600 text-xl font-semibold py-3">
             A Plan for the People
           </h1>
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-2xl md:text-5xl font-bold">
             It’s time to take <br />
             control of <span className="text-blue-600"> our life</span>
           </h1>
@@ -37,7 +37,7 @@ const OngoingCampain = () => {
             citizen. It’s time to do things the right way.
           </h1>
           <Link to="/campains">
-            <button className="flex items-center gap-2 pt-3 text-xl font-medium text-blue-600">
+            <button className="flex items-center gap-2 pt-3 md:text-xl font-medium text-blue-600">
               Explore Ongoing Campains <FaArrowRightLong />
             </button>
           </Link>
@@ -46,7 +46,7 @@ const OngoingCampain = () => {
       <motion.div
         ref={containerRef}
         style={{ y: yValue, opacity: opacityValue, transition: "2s" }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-12"
+        className="grid grid-cols-1 md:grid-cols-3 gap-8"
       >
         {data?.slice(0, 3).map((supply: TSupply) => (
           <Card campain={supply} key={supply._id}></Card>

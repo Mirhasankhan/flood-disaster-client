@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import { FaLock } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { FcGoogle } from "react-icons/fc";
-import logo from "../../src/assets/images/main-logo.avif";
+import logo from "../../src/assets/images/logo3.jpeg";
 
 const Login = () => {
   const [loginAccount] = useLoginMutation();

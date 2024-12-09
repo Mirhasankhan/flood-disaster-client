@@ -5,7 +5,7 @@ import PHForm from "../components/form/PHForm";
 import PHInput from "../components/form/PHInput";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import logo from "../../src/assets/images/main-logo.avif";
+import logo from "../../src/assets/images/logo3.jpeg";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";

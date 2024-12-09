@@ -2,6 +2,7 @@ import aboutPic from "../../assets/images/aboutUs.avif";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,7 +19,7 @@ const AboutUs = () => {
       ref={containerRef}
       style={{ y: yValue, opacity: opacityValue, transition: "2s" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-6 md:mx-12 pt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-6 md:mx-12 pt-16">
         <div>
           <h1 className="bg-blue-600 h-6 w-6"></h1>
           <h1 className="text-orange-600 text-xl font-semibold pt-2">
@@ -55,12 +56,16 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <button className="bg-blue-600 mt-6 text-white py-2 px-8 text-xl mr-2 rounded-md font-medium">
-            Donate
-          </button>
-          <button className="bg-gray-600 mt-6 text-white py-2 px-4 text-xl mr-2 rounded-md font-medium">
-            Learn More
-          </button>
+          <Link to="/campains">
+            <button className="bg-blue-600 mt-6 text-white py-2 px-8 text-xl mr-2 rounded-md font-medium">
+              Donate
+            </button>
+          </Link>
+          <Link to="/about-us">
+            <button className="bg-gray-600 mt-6 text-white py-2 px-4 text-xl mr-2 rounded-md font-medium">
+              Learn More
+            </button>
+          </Link>
         </div>
         <div className="relative">
           <img className="rounded-lg w-full" src={aboutPic} alt="" />

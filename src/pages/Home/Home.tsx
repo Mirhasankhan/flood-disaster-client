@@ -1,5 +1,6 @@
 import AboutUs from "./AboutUs";
 import Banner from "./Banner";
+import DonorTestimonials from "./DonorTestimonials";
 import Gallery from "./Gallery";
 import OngoingCampain from "./OngoingCampain";
 import Volunteers from "./volunteer/Volunteer";
@@ -12,7 +13,8 @@ const Home = () => {
       <OngoingCampain></OngoingCampain>
       <AboutUs></AboutUs>
       <Volunteers></Volunteers>
-      <Gallery></Gallery>
+      <DonorTestimonials></DonorTestimonials>
+      {/* <Gallery></Gallery> */}
     </div>
   );
 };

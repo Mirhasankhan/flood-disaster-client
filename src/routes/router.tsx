@@ -11,10 +11,10 @@ import Testimonials from "../pages/testimonials/Testimonials";
 import LeaderBoard from "../pages/LeaderBoard";
 import AdminRoute from "./AdminRoute";
 import DonorRoute from "./DonorRoute";
-import Community from "../pages/community/Community";
 import About from "../pages/aboutUs/About";
 import Campains from "../pages/supplies/Campains";
 import CampainDetails from "../pages/supplies/CampainDetails";
+import News from "../pages/News";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <CampainDetails></CampainDetails>,
       },
       {
-        path: "/testimonials",
+        path: "/team",
         element: <Testimonials></Testimonials>,
       },
       {
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
         element: <LeaderBoard></LeaderBoard>,
       },
       {
-        path: "/community",
-        element: <Community></Community>,
+        path: "/news",
+        element: <News></News>,
       },
       {
         path: "/about-us",

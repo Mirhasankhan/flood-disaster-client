@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import aboutUs from "../../assets/images/about.jpg";
+import aboutUs from "../../assets/images/donate.webp";
 import Motto from "./Motto";
 import OurVolunteers from "./OurVolunteers";
+import { Link } from "react-router-dom";
 
 const About = () => {
   useEffect(() => {
@@ -10,39 +11,29 @@ const About = () => {
   return (
     <div>
       <div
-        className="h-[420px] bg-cover bg-center text-white p-5"
+        className="h-[580px] bg-cover bg-center  grid grid-cols-2"
         style={{ backgroundImage: `url(${aboutUs})` }}
-      ></div>
-      <div className="mx-6 md:mx-12 md:flex gap-3 py-6">
-        <div className="w-full">
-          <h3 className="text-green-400 font-medium ">WHERE IT ALL BEGAN</h3>
-          <h1 className="text-4xl font-bold py-4">How are we?</h1>
-          <p className="font-light">
-            Our organization was founded with the vision of creating a better
-            future for all. Over the years, we have grown and evolved, but our
-            core values remain the same. We are dedicated to making a positive
-            impact in the world through our various initiatives and projects.
-            From supporting local communities to advocating for global change,
-            our team is committed to making a difference.
+      >
+        <h1></h1>
+        <div className="bg-gray-200 w-3/5 my-16 mx-auto p-8">
+          <h1 className="text-5xl pb-2 font-semibold">
+            Individually, we are one drop. Together, we are ocean
+          </h1>
+          <p>
+            Early on, believe that care is a right diversity is a strength, the
+            economy should work for everyone, and facts and truth matter.
           </p>
-        </div>
-        <div className="w-full">
-          <div className="w-full">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/q3ovZ-RWLoQ?si=oK7kI--TW8NYoOAG"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          </div>
+          <Link to="/campains">
+            <button className="border p-2 rounded-lg text-red-500 border-red-500 bg-white mt-4">
+              Help Our Community
+            </button>
+          </Link>
         </div>
       </div>
-      <Motto></Motto>
-      <OurVolunteers></OurVolunteers>
+      <div className="mx-6 md:mx-12">
+        <Motto></Motto>
+        <OurVolunteers></OurVolunteers>
+      </div>
     </div>
   );
 };

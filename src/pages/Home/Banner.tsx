@@ -50,7 +50,7 @@ const Banner = () => {
           className="flex justify-center flex-col items-center  "
         >
           <div className="">
-            <p className="text-red-600 font-medium text-2xl pb-2">
+            <p className="text-orange-600 font-medium text-2xl pb-2">
               This is our dream
             </p>
             <h1 className="italic mb-2 text-xl md:text-6xl font-semibold text-left ">
@@ -59,15 +59,17 @@ const Banner = () => {
             </h1>
             <p className=" md:text-xl  text-gray-700">
               Empowering Communities Through Efficient Relief Distribution. Our
-              platform is dedicated to revolutionizing the way food reaches
+              platform is dedicated to revolutionizing the way donation reaches
               those in need.
             </p>
-            <Link to="/campains">
-              <button className="main-button">Donate</button>
-            </Link>
-            <Link to="/about-us">
-              <button className="!bg-gray-600 main-button">Learn More</button>
-            </Link>
+            <div className="flex">
+              <Link to="/campains">
+                <button className="main-button">Donate</button>
+              </Link>
+              <Link to="/about-us">
+                <button className="!bg-gray-600 main-button">Learn More</button>
+              </Link>
+            </div>
           </div>
         </motion.div>
         <motion.div initial="hidden" animate="visible" variants={parent}>

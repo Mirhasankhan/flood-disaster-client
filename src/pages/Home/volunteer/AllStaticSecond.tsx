@@ -82,7 +82,7 @@ const AllStaticSeceond = () => {
       </div>
 
       <div className="bg-[#252b3f] cursor-pointer   text-white md:w-[200px]  lg:w-[258px] h-[258px]">
-        <Link to="/package">
+        <Link to="/">
           <div className="flex flex-col mt-20">
             <h1 className="w-1/2 mx-auto font-semibold">
               <BsArrowRight className="ml-10" />

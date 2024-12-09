@@ -12,6 +12,7 @@ export type TSupply = {
   title: string;
   overview: string;
   description: string;
+  time: string;
 };
 
 export interface Image {
