@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../ui/Header";
 import Footer from "../ui/Footer";
 import Lottie from "lottie-react";
-import spinner from "../../assets/animation_llxinh3q.json";
+import spinner from "../../assets/loading.json";
 import { useSuppliesQuery } from "../../redux/features/supply/supplyManagement.api";
 import { useContext } from "react";
 import { ThemeContext } from "../providers/ThemeProvider";

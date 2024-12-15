@@ -8,7 +8,7 @@ const News = () => {
   return (
     <div className="bg-gray-100 min-h-screen px-2 md:px-8">
       <h1>all news here</h1>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {news?.map((n: TSupply) => (
           <div className="bg-white p-3 rounded-lg border" key={n._id}>
             <h1 className="text-xl font-semibold pb-2">{n.title}</h1>

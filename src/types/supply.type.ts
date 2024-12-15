@@ -3,7 +3,7 @@ export type TSupply = {
   name: string;
   email: string;
   contactNo: string;
-  supplyName: string;
+  contactNumber: string;
   donorEmail?: string;
   amount: string;
   category: string;

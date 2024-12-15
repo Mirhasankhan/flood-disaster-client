@@ -1,9 +1,22 @@
+import Lottie from "lottie-react";
 import { useLeaderboardQuery } from "../redux/features/users/userManagement.api";
 import { GiQueenCrown } from "react-icons/gi";
+import spinner from "../assets/loading.json";
 
 const LeaderBoard = () => {
-  const { data } = useLeaderboardQuery("");
-  console.log(data?.leaderboard);
+  const { data, isLoading } = useLeaderboardQuery("");
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center">
+        <Lottie
+          style={{ height: "200px", width: "300px" }}
+          animationData={spinner}
+          loop={true}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] min-h-screen">

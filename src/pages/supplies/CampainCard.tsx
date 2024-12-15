@@ -10,10 +10,11 @@ const CampainCard = ({ campain }: TSupplyCardProps) => {
   return (
     <div className="bg-white shadow-md border overflow-hidden rounded-md">
       <img
-        className="w-full h-64 hover:scale-110 transition-transform duration-300"
+        className="w-full h-60 hover:scale-110 transition-transform duration-300"
         src={image.imageUrl}
         alt=""
       />
+
       <div className="p-3">
         <h1 className="pt-3 font-bold">{title}</h1>
         <Progress

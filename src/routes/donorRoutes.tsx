@@ -1,5 +1,6 @@
 import CreateTestimonial from "../pages/donor/CreateTestimonial";
 import DonorDashboard from "../pages/donor/DonorDashboard";
+import MyDonations from "../pages/donor/MyDonations";
 
 export const donorPaths = [
   {
@@ -11,7 +12,7 @@ export const donorPaths = [
   {
     name: "My Donations",
     path: "my-donations",
-    element: "my donaton",
+    element: <MyDonations></MyDonations>,
   },
   {
     name: "Create Testimonial",

@@ -7,7 +7,7 @@ const Card = ({ campain }: TSupplyCardProps) => {
     campain;
 
   return (
-    <div className="my-12 mx-2 p-3 bg-gray-100 shadow-md rounded-md ">
+    <div className="my-4 mx-2 p-3 bg-gray-100 shadow-md rounded-md ">
       <img
         className="w-full h-[250px] rounded-sm "
         src={image.imageUrl}

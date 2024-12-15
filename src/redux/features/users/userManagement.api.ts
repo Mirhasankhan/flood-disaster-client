@@ -15,11 +15,12 @@ const usersApi = baseApi.injectEndpoints({
       }),
       providesTags: ["supply"],
     }),
-    deny: builder.mutation({
-      query: (id) => ({
-        url: `/deny/${id}`,
-        method: "DELETE",
+    donations: builder.query({
+      query: (email) => ({
+        url: `/donations?email=${email}`,
+        method: "GET",
       }),
+      providesTags: ["supply"],
     }),
     approveApply: builder.mutation({
       query: ({ id1, id2, isApproved }) => ({
@@ -35,6 +36,6 @@ const usersApi = baseApi.injectEndpoints({
 export const {
   useLeaderboardQuery,
   useUsersQuery,
-  useDenyMutation,
+  useDonationsQuery,
   useApproveApplyMutation,
 } = usersApi;

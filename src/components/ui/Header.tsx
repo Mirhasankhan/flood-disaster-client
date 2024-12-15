@@ -11,22 +11,9 @@ import {
   FaPhone,
   FaTwitter,
 } from "react-icons/fa";
+import NavigationModal from "./NavigationModal";
 
 const Header = () => {
-  // const items = [
-  //   {
-  //     key: "1",
-  //     label: <NavLink to="/campains">Ongoing Campaigns</NavLink>,
-  //   },
-  //   {
-  //     key: "2",
-  //     label: <NavLink to="/upcoming-campains">Upcoming Campaigns</NavLink>,
-  //   },
-  //   {
-  //     key: "3",
-  //     label: <NavLink to="/previous-campains">Previous Campaigns</NavLink>,
-  //   },
-  // ];
   return (
     <div>
       <div className="py-2 md:px-8 px-2 flex border-b justify-between">
@@ -48,7 +35,7 @@ const Header = () => {
         </div>
       </div>
       <div className="w-full md:px-8 px-2">
-        <nav className="flex justify-between  items-center">
+        <nav className="flex justify-between py-4 md:py-0 items-center">
           <NavLink className="text-xl md:text-2xl" to="/">
             <div className="flex items-center">
               <img
@@ -68,9 +55,6 @@ const Header = () => {
             >
               Campains
             </NavLink>
-            {/* <Dropdown menu={{ items }} placement="bottomLeft">
-              <button className="font-semibold">Campains</button>
-            </Dropdown> */}
             <Link
               to="/leaderboard"
               className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
@@ -78,10 +62,10 @@ const Header = () => {
               Best Donors
             </Link>
             <Link
-              to="/team"
+              to="/about-us"
               className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
             >
-              Our Team
+              About Us
             </Link>
             <Link
               to="/news"
@@ -106,12 +90,15 @@ const Header = () => {
           )} */}
             </div>
           </div>
-          <div className="bg-gray-100 px-12 inset-y-0 -skew-x-12 py-3">
+          <div className="bg-gray-200 px-12 hidden md:block inset-y-0 -skew-x-12 py-3">
             <Link to="/campains">
               <button className="bg-blue-700 rounded-md text-white text-xl font-medium p-3">
                 Donate Now
               </button>
             </Link>
+          </div>
+          <div className="md:hidden">
+            <NavigationModal></NavigationModal>
           </div>
         </nav>
       </div>

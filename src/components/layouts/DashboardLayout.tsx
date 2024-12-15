@@ -10,12 +10,12 @@ const DashboardLayout = () => {
       <Sidebar></Sidebar>
       <Layout>
         <Header style={{ padding: 0 }} />
-        <Content style={{ margin: "24px 16px 0" }}>
+        <Content style={{ margin: "0px 0px 0" }}>
           <div
-            className="min-h-screen"
+            className="min-h-screen bg-[#1a2c52]"
             style={{
               padding: "16px",
-              backgroundColor: "gray",
+
               // backgroundImage: "white",
               // backgroundImage: "linear-gradient(to right, #211e3d, #561c3e)",
             }}

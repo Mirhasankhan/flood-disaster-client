@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import Details from "./Details";
 import { useEffect } from "react";
 import { useSingleCampainQuery } from "../../redux/features/supply/supplyManagement.api";
+import spinner from "../../assets/loading.json";
+import Lottie from "lottie-react";
 
 const CampainDetails = () => {
   useEffect(() => {
@@ -14,7 +16,13 @@ const CampainDetails = () => {
 
   if (isLoading) {
     return (
-      <p className="text-center text-red-500 text-xl pt-24">Loading......</p>
+      <div className="flex justify-center items-center">
+        <Lottie
+          style={{ height: "200px", width: "300px" }}
+          animationData={spinner}
+          loop={true}
+        />
+      </div>
     );
   }
 

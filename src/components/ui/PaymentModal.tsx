@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
+import { TSupplyCardProps } from "../../types";
 // import ProceedPayment from "../Payment/ProceedPayment";
 
 interface FormData {
@@ -16,7 +17,7 @@ interface FormData {
   amount: number;
 }
 
-const PaymentModal = ({ id, title }: { id: string; title: string }) => {
+const PaymentModal = ({ campain }: TSupplyCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { email, name } = useAppSelector(useCurrentUser);
   const [updateCampain] = useUpdateCollectionMutation();
@@ -48,9 +49,13 @@ const PaymentModal = ({ id, title }: { id: string; title: string }) => {
   const onSubmit: SubmitHandler<FormData> = (data) => {
     const donationDetail = {
       ...data,
+      image: {
+        imageUrl: campain.image.imageUrl,
+      },
+      title: campain.title,
     };
     addDonation(donationDetail);
-    updateCampain({ id: id, newAmount: +data.amount });
+    updateCampain({ id: campain._id, newAmount: +data.amount });
     toast.success("Donated Successfully, Thanks for your contribution!");
     setIsModalOpen(false);
   };
@@ -61,7 +66,7 @@ const PaymentModal = ({ id, title }: { id: string; title: string }) => {
         Go to payment
       </button>
       <Modal
-        title={title}
+        title={campain.title}
         open={isModalOpen}
         footer={null}
         onOk={handleOk}
@@ -147,9 +152,9 @@ const PaymentModal = ({ id, title }: { id: string; title: string }) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            className="w-full bg-blue-500 font-semibold text-white py-2 rounded hover:bg-blue-600"
           >
-            Submit
+            Donate
           </button>
         </form>
         {/* <ProceedPayment></ProceedPayment> */}

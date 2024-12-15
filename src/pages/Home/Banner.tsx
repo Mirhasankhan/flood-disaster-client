@@ -47,13 +47,13 @@ const Banner = () => {
           initial="hidden"
           animate="visible"
           variants={parentLeft}
-          className="flex justify-center flex-col items-center  "
+          className="flex py-4 justify-center flex-col items-center  "
         >
           <div className="">
-            <p className="text-orange-600 font-medium text-2xl pb-2">
+            <p className="text-orange-600 font-medium md:text-2xl pb-2">
               This is our dream
             </p>
-            <h1 className="italic mb-2 text-xl md:text-6xl font-semibold text-left ">
+            <h1 className=" mb-2 text-xl md:text-6xl font-semibold text-left ">
               Building a Hunger <br /> Free
               <span className="text-blue-700">Future</span>
             </h1>
@@ -62,12 +62,14 @@ const Banner = () => {
               platform is dedicated to revolutionizing the way donation reaches
               those in need.
             </p>
-            <div className="flex">
+            <div className="flex gap-3">
               <Link to="/campains">
-                <button className="main-button">Donate</button>
+                <button className="main-button w-full">Donate</button>
               </Link>
               <Link to="/about-us">
-                <button className="!bg-gray-600 main-button">Learn More</button>
+                <button className="!bg-gray-600 main-button w-full">
+                  Learn More
+                </button>
               </Link>
             </div>
           </div>
