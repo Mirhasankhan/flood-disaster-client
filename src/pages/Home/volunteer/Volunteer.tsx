@@ -18,10 +18,10 @@ const Volunteers = () => {
 
   return (
     <>
-      <div
+      {/* <div
         style={{ clipPath: "polygon(0 10%, 100% 70%, 100% 53%, 0 100%)" }}
         className="bg-[#252b3f]  w-full h-[150px] lg:translate-y-[135px] md:translate-y-[155px]"
-      ></div>
+      ></div> */}
       <div
         style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 92%)" }}
         className="bg-[#cf1a45] text-white  pt-40 pb-40"
@@ -70,10 +70,10 @@ const Volunteers = () => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         style={{ clipPath: "polygon(0 8%, 100% 90%, 100% 100%, 0 100%)" }}
         className="bg-[#252b3f]  w-full md:h-[170px] lg:h-[150px] lg:-translate-y-[150px] md:-translate-y-[170px]"
-      ></div>
+      ></div> */}
     </>
   );
 };

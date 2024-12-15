@@ -3,6 +3,7 @@ import aboutUs from "../../assets/images/donate.webp";
 import Motto from "./Motto";
 import OurVolunteers from "./OurVolunteers";
 import { Link } from "react-router-dom";
+import Achievement from "./Achievement";
 
 const About = () => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const About = () => {
       </div>
       <div className="mx-6 md:mx-12">
         <Motto></Motto>
+        <Achievement></Achievement>
         <OurVolunteers></OurVolunteers>
       </div>
     </div>
