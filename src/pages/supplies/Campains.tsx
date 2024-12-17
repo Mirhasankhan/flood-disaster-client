@@ -10,7 +10,7 @@ const Campains = () => {
   const { data } = useSuppliesQuery("");
 
   return (
-    <div className="bg-gray-100">
+    <div className="">
       <div className="flex flex-col mb-4 text-center items-center justify-center bg-gradient-to-r from-[#211e3d] to-[#561c3e] h-60">
         <h1 className="text-gray-100 pb-2">We Need Your Contribution</h1>
         <p className="text-white text-2xl md:text-4xl font-bold">

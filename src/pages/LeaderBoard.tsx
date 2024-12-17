@@ -2,9 +2,49 @@ import Lottie from "lottie-react";
 import { useLeaderboardQuery } from "../redux/features/users/userManagement.api";
 import { GiQueenCrown } from "react-icons/gi";
 import spinner from "../assets/loading.json";
+import { TSupply } from "../types";
+import { Table } from "antd";
 
 const LeaderBoard = () => {
   const { data, isLoading } = useLeaderboardQuery("");
+  const tableData = data?.leaderboard.map(
+    ({ _id, name, totalAmount, contactNumber }: TSupply, index: number) => ({
+      index: index + 1,
+      _id,
+      name,
+      totalAmount,
+      contactNumber,
+    })
+  );
+
+  const columns = [
+    {
+      title: "Rank",
+      render: (record: TSupply) => (
+        <div className="flex items-center gap-1">
+          <GiQueenCrown className="text-orange-500" />
+          <h1>{record.index}</h1>
+        </div>
+      ),
+      key: "name",
+    },
+    {
+      title: "User Name",
+      dataIndex: "name",
+      key: "name",
+    },
+
+    {
+      title: "Email",
+      dataIndex: "_id",
+      key: "age",
+    },
+    {
+      title: "Amount Of Donation",
+      render: (record: TSupply) => <h1>${record.totalAmount}</h1>,
+      key: "name",
+    },
+  ];
 
   if (isLoading) {
     return (
@@ -20,47 +60,19 @@ const LeaderBoard = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] min-h-screen">
-      <h1 className="text-center text-2xl text-white font-semibold py-6 md:text-4xl">
+      <h1 className="text-center text-2xl text-white font-semibold pb-2 pt-6 md:text-4xl">
         Donor Leaderboard
       </h1>
-      <div className="w-4/5 md:w-3/4 mx-auto bg-white p-2 rounded-md ">
-        <div className="overflow-x-auto">
-          <table className="table">
-            <thead className="bg-blue-600  text-white">
-              <tr>
-                <th>Rank</th>
-                <th>Donor Name</th>
-                <th>Donor Email</th>
-                <th>Amount Of Donation</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data?.leaderboard.map(
-                (
-                  leader: { _id: string; totalAmount: number; name: string },
-                  index: number
-                ) => (
-                  <tr
-                    className={` ${
-                      index % 2 === 0
-                        ? "bg-gray-500 text-white"
-                        : "bg-white text-black"
-                    }`}
-                    key={index}
-                  >
-                    <th>Rank 0{index + 1}</th>
-                    <td className="flex items-center gap-2">
-                      {leader.name}
-                      <GiQueenCrown className="text-orange-400 text-xl" />
-                    </td>
-                    <td>{leader._id}</td>
-                    <td>${leader.totalAmount}</td>
-                  </tr>
-                )
-              )}
-            </tbody>
-          </table>
-        </div>
+      <p className="text-white text-center pb-6">
+        Celebrating the generosity of our top contributors who are making a
+        difference.
+      </p>
+      <div className="w-3/4 mx-auto">
+        <Table
+          pagination={{ pageSize: 5 }}
+          dataSource={tableData}
+          columns={columns}
+        />
       </div>
     </div>
   );

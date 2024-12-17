@@ -18,11 +18,11 @@ const OurVolunteers = () => {
       <h1 className="pt-12 font-bold text-center text-4xl ">
         Our Campain Organizers
       </h1>
-      <div className="grid grid-cols-4 gap-5 my-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 my-6">
         {data?.map((vol: TVolunteer) => (
           <div className="flex flex-col items-center" key={vol._id}>
             <img
-              className="h-60 w-60 rounded-full"
+              className="h-40 w-40 md:h-60 md:w-60 rounded-full"
               src={vol.image.imageUrl}
               alt=""
             />

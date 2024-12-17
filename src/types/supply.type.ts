@@ -13,6 +13,8 @@ export type TSupply = {
   overview: string;
   description: string;
   time: string;
+  totalAmount: number;
+  index: number;
 };
 
 export interface Image {

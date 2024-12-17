@@ -7,12 +7,12 @@ import { FiUser } from "react-icons/fi";
 const Motto = () => {
   return (
     <div>
-      <div className="pt-12 pb-2 grid grid-cols-2 items-center gap-8">
+      <div className="pt-12 pb-2 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <div>
           <h1 className="text-orange-600 text-xl font-semibold py-2">
             About Us
           </h1>
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-2xl md:text-5xl font-bold">
             Transforming Lives, One Act of Kindness at a Time
           </h1>
         </div>
@@ -20,11 +20,11 @@ const Motto = () => {
           <img
             src={bird}
             alt="Moving Image"
-            className="w-64 h-48 absolute animate-slide"
+            className="h-24 w-40 md:w-64 md:h-48 absolute animate-slide"
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h1 className="pb-4">
             That's a powerful and inspiring heading! It effectively communicates

@@ -39,7 +39,7 @@ const Volunteers = () => {
               Join us
             </h1>
             <h1 className="lg:text-[40px] md:text-4xl font-bold text-center">
-              & beacome an Volunteer
+              & become a Volunteer
             </h1>
           </motion.div>
           <motion.div

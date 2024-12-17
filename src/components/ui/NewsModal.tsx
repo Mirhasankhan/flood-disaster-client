@@ -20,8 +20,12 @@ const NewsModal = ({ news }: { news: TSupply }) => {
 
   return (
     <>
-      <button className="text-blue-600" onClick={showModal}>
-        Read News
+      <button
+        onClick={showModal}
+        className="relative px-6 py-2 overflow-hidden text-white bg-black mt-2  rounded-full group"
+      >
+        <span className="relative z-10">Read More</span>
+        <span className="absolute inset-0 bg-orange-400 transform scale-x-0 origin-left transition-transform duration-1000 group-hover:scale-x-100"></span>
       </button>
       <Modal
         title={news.title}

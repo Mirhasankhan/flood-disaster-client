@@ -17,7 +17,7 @@ const About = () => {
       >
         <h1 className="hidden md:block"></h1>
         <div className="bg-gray-200 w-full md:w-3/5 my-16 mx-auto p-8">
-          <h1 className="text-5xl pb-2 font-semibold">
+          <h1 className="text-2xl md:text-5xl pb-2 font-semibold">
             Individually, we are one drop. Together, we are ocean
           </h1>
           <p>
@@ -31,7 +31,7 @@ const About = () => {
           </Link>
         </div>
       </div>
-      <div className="mx-6 md:mx-12">
+      <div className="mx-4 md:mx-12">
         <Motto></Motto>
         <div className="mt-12">
           <Achievement></Achievement>

@@ -49,7 +49,7 @@ const Achievement = () => {
             >
               {scrolled ? <CountUp start={0} end={285000} duration={3} /> : 0}+
             </span>
-            <h1 className="md:text-xl text-md  md:ml-4">Collection</h1>
+            <h1 className="md:text-xl text-md pt-1 md:ml-4">Collection</h1>
           </div>
           <div className="flex flex-col">
             <span
@@ -58,7 +58,7 @@ const Achievement = () => {
             >
               {scrolled ? <CountUp start={0} end={6000} duration={3} /> : 0}+
             </span>
-            <h1 className="md:text-xl text-md text-center -ml-10 md:ml-0">
+            <h1 className="md:text-xl text-md text-center pt-1 -ml-10 md:ml-0">
               Donation
             </h1>
           </div>
@@ -69,7 +69,7 @@ const Achievement = () => {
             >
               {scrolled ? <CountUp start={0} end={300} duration={3} /> : 0}+
             </span>
-            <h1 className="md:text-xl text-md ">Volunterier</h1>
+            <h1 className="md:text-xl pt-1 text-md ">Volunteer</h1>
           </div>
         </div>
       </div>

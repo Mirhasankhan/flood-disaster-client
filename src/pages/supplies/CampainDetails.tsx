@@ -28,7 +28,7 @@ const CampainDetails = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen py-12">
-      <div className="mx-6 md:mx-16">
+      <div className="mx-4 md:mx-12">
         <div>
           {singleCampain && <Details campain={singleCampain["0"]}></Details>}
         </div>
