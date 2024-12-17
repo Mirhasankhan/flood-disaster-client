@@ -4,13 +4,15 @@ const Event = ({
   title,
   image,
   poster,
+  time,
 }: {
   title: string;
   image: string;
   poster: string;
+  time: string;
 }) => {
   return (
-    <div className="hover:bg-black hover:cursor-pointer rounded-md group grid grid-cols-5 items-center gap-3 border p-3 transition duration-1000">
+    <div className="hover:bg-black w-full hover:cursor-pointer rounded-md group md:grid grid-cols-5 items-center gap-3 border p-3 transition duration-1000">
       <div className="relative col-span-2">
         <img
           className="h-48 w-full rounded-sm transition duration-1000"
@@ -22,11 +24,11 @@ const Event = ({
           className="absolute text-center left-3 bottom-3 text-white p-2 hidden group-hover:block transition-all duration-1000"
         >
           From <br />
-          10 August
+          {time}
         </h1>
       </div>
       <div className="col-span-3">
-        <h1 className="group-hover:text-white text-3xl font-semibold transition-all duration-1000">
+        <h1 className="group-hover:text-white text-xl md:text-3xl font-semibold transition-all duration-1000">
           {title}
         </h1>
         <p className="py-2 group-hover:text-white transition-all duration-1000">

@@ -65,7 +65,7 @@ const Details = ({ campain }: TSupplyCardProps) => {
       <div className="mt-12 text-xl grid grid-cols-5 gap-4">
         <div className="col-span-3">
           <h1 className="text-xl font-semibold pb-2">Descriptions:</h1>
-          <h1 className="text-sm">{description}</h1>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
         <div className="col-span-2">
           <h1 className="text-2xl font-semibold pb-4">Recent donations</h1>

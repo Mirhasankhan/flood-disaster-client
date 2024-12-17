@@ -3,6 +3,7 @@ import { TTestimonial } from "../../types/Tetimonial.type";
 import { Rating } from "@smastrom/react-rating";
 import bgImage from "../../assets/images/testimonial.jpg";
 import "@smastrom/react-rating/style.css";
+import { FaQuoteLeft } from "react-icons/fa6";
 
 const DonorTestimonials = () => {
   const { data } = useAllTestimonialsQuery("");
@@ -48,6 +49,7 @@ const DonorTestimonials = () => {
           </div>
         ))}
       </div>
+      <FaQuoteLeft className="mx-auto text-8xl"></FaQuoteLeft>
     </div>
   );
 };

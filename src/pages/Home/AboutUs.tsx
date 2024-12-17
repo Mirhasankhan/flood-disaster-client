@@ -68,10 +68,14 @@ const AboutUs = () => {
           </Link>
         </div>
         <div className="relative">
-          <img className="rounded-lg w-full" src={aboutPic} alt="" />
-          <h1 className="absolute bottom-0 -left-48  bg-orange-600 p-8 hidden md:block rounded-md md:w-3/5 italic text-white text-2xl">
-            20 Years of experience in <br />
-            charity fund
+          <img
+            className="rounded-full h-[380px] w-[380px] mx-auto"
+            src={aboutPic}
+            alt=""
+          />
+          <h1 className="absolute animate-bounce-y bottom-4 left-20  bg-blue-600 p-8 hidden md:block rounded-full italic text-white text-2xl">
+            20 Years of <br />
+            experience
           </h1>
         </div>
       </div>

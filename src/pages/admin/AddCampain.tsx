@@ -11,9 +11,16 @@ import { IoIosCreate } from "react-icons/io";
 import { GrOverview } from "react-icons/gr";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlineDescription } from "react-icons/md";
+import ReactQuill from "react-quill";
+import { useState } from "react";
 
 const AddCampain = () => {
   const [newSupply] = useAddSupplyMutation();
+  const [content, setContent] = useState("");
+
+  const handleChange = (value: string) => {
+    setContent(value);
+  };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
@@ -33,6 +40,7 @@ const AddCampain = () => {
           imageUrl: imgUrl,
         },
         collectedAmount: 0,
+        description: content,
       };
 
       newSupply(modifiedData);
@@ -96,10 +104,10 @@ const AddCampain = () => {
               />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput
-                type="text"
-                name="description"
-                placeholder="description"
+              <ReactQuill
+                className="my-3"
+                value={content}
+                onChange={handleChange}
               />
             </Col>
             <MdOutlineDescription className="absolute top-[8px] text-2xl text-white left-[530px]"></MdOutlineDescription>
