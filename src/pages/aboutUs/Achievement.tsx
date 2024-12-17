@@ -38,10 +38,10 @@ const Achievement = () => {
       initial="hidden"
       animate="show"
       variants={children}
-      className="flex justify-end relative mt-16"
+      className="flex justify-end relative"
     >
       <div className="bg-[#cf1a45] w-[100%]  h-[120px] rounded-md ">
-        <div className="text-white flex  justify-evenly md:items-center gap-2 md:gap-40 ml-10 md:-ml-5 lg:ml-20 mt-4 lg:mt-10 z-50">
+        <div className="text-white flex px-2 pt-8 justify-between items-center z-50">
           <div className="flex flex-col">
             <span
               className="inline-flex font-bold text-xl md:text-[40px]"

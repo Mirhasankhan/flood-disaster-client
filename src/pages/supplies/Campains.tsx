@@ -17,7 +17,7 @@ const Campains = () => {
           Our Ongoing Campains
         </p>
       </div>
-      <div className="px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:pb-4 gap-2">
+      <div className="px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:pb-4 gap-2">
         {data?.map((supply: TSupply) => (
           <Card campain={supply} key={supply._id}></Card>
         ))}

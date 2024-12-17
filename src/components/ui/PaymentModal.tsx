@@ -63,7 +63,7 @@ const PaymentModal = ({ campain }: TSupplyCardProps) => {
   return (
     <>
       <button className="main-button" onClick={showModal}>
-        Go to payment
+        Proceed to payment
       </button>
       <Modal
         title={campain.title}

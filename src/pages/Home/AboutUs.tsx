@@ -3,6 +3,7 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Achievement from "../aboutUs/Achievement";
 
 const AboutUs = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,7 @@ const AboutUs = () => {
             About Us
           </h1>
           <h1 className="text-2xl font-bold py-2">
-            Empowering Communities, One Meal at a Time
+            Transforming Lives, One Act of Kindness at a Time
           </h1>
           <p className="font-medium">
             AltruistHub is a non-political, non-profit organization dedicated to
@@ -73,10 +74,13 @@ const AboutUs = () => {
             src={aboutPic}
             alt=""
           />
-          <h1 className="absolute animate-bounce-y bottom-4 left-20  bg-blue-600 p-8 hidden md:block rounded-full italic text-white text-2xl">
+          {/* <h1 className="absolute animate-bounce-y bottom-4 left-20  bg-blue-600 p-8 hidden md:block rounded-full italic text-white text-2xl">
             20 Years of <br />
             experience
-          </h1>
+          </h1> */}
+          <div className="hidden md:block absolute animate-bounce-y bottom-4 -left-40  w-full">
+            <Achievement></Achievement>
+          </div>
         </div>
       </div>
     </motion.div>

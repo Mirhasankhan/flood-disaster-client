@@ -57,6 +57,9 @@ const MyDonations = () => {
 
   return (
     <div>
+      <h1 className="text-center text-3xl font-bold py-4 text-white">
+        My Donations
+      </h1>
       <Table
         pagination={{ pageSize: 6 }}
         dataSource={tableData}

@@ -9,7 +9,7 @@ const DonorTestimonials = () => {
   const { data } = useAllTestimonialsQuery("");
   return (
     <div
-      className="h-[640px] pt-8 md:pt-16 mb-6 bg-cover bg-center bg-fixed text-white"
+      className="h-[640px] pt-8 md:pt-16 mb-1 bg-cover bg-center bg-fixed text-white"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <h1 className="text-center font-bold text-2xl md:text-4xl pb-5">

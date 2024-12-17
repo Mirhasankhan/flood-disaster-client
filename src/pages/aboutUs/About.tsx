@@ -33,7 +33,9 @@ const About = () => {
       </div>
       <div className="mx-6 md:mx-12">
         <Motto></Motto>
-        <Achievement></Achievement>
+        <div className="mt-12">
+          <Achievement></Achievement>
+        </div>
         <OurVolunteers></OurVolunteers>
       </div>
     </div>

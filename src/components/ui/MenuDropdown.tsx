@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logOut, useCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { CiLogout, CiCircleList } from "react-icons/ci";
+import { CiLogout } from "react-icons/ci";
 import { AlignRightOutlined, CloseCircleOutlined } from "@ant-design/icons";
-import { FaBorderAll, FaUser } from "react-icons/fa";
+import { FaBorderAll, FaDonate, FaUser } from "react-icons/fa";
 import {
   MdDashboard,
   MdOutlineManageAccounts,
@@ -24,7 +24,7 @@ const MenuDropdown = () => {
           <div className="hidden md:flex flex-row items-center gap-3 cursor-pointer">
             <div
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 bg-gray-300 text-black flex items-center gap-1 rounded-lg"
+              className="p-2 bg-gray-300 text-black flex items-center gap-1 rounded-md"
             >
               <FaUser className="text-xl text-white rounded-full"></FaUser>
               <div className=" md:block">
@@ -46,7 +46,11 @@ const MenuDropdown = () => {
         </Link>
       )}
       {isOpen && (
-        <div className="absolute top-[44px] border md:top-[41px] right-0 bg-white p-2 md:p-6 rounded-b-md min-w-[250px]">
+        <div
+          data-aos="fade-down"
+          data-aos-duration="2000"
+          className="absolute top-[44px] border md:top-[41px] right-0 bg-white p-2 md:p-6 rounded-b-md min-w-[250px]"
+        >
           <Link to="/" className="flex gap-2 items-center text-gray-700">
             <MdOutlineManageAccounts className="text-2xl" />
             <h1 className="hover:underline hover:text-red-500">
@@ -61,11 +65,11 @@ const MenuDropdown = () => {
             <h1 className="hover:underline hover:text-red-500">Dashboard</h1>
           </Link>
           <Link
-            to={`/`}
+            to={`/${role}/my-donations`}
             className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
           >
-            <CiCircleList className="text-2xl" />
-            <h1 className="hover:underline hover:text-red-500">My Watchlist</h1>
+            <FaDonate className="text-2xl" />
+            <h1 className="hover:underline hover:text-red-500">My Donations</h1>
           </Link>
           <Link
             to={`/supplies`}
@@ -82,11 +86,11 @@ const MenuDropdown = () => {
             <h1 className="hover:underline hover:text-red-500">Leaderboard</h1>
           </Link>
           <Link
-            to={`/`}
+            to={`/${role}/create-testimonial`}
             className="flex gap-2 items-center text-gray-700 md:my-3 my-1"
           >
             <MdRateReview className="text-2xl" />
-            <h1 className="hover:underline hover:text-red-500">My Reviews</h1>
+            <h1 className="hover:underline hover:text-red-500">Testimonial</h1>
           </Link>
 
           <div

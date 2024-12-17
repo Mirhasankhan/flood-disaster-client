@@ -39,6 +39,7 @@ const Sidebar = () => {
           height: "4rem",
           display: "flex",
           justifyContent: "center",
+          borderRight: "1px solid gray",
           alignItems: "center",
         }}
       >

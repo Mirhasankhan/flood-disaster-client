@@ -1,15 +1,17 @@
 import { Layout } from "antd";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
+import DashboardHeader from "./DashboardHeader";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const DashboardLayout = () => {
   return (
     <Layout>
       <Sidebar></Sidebar>
       <Layout>
-        <Header style={{ padding: 0 }} />
+        <DashboardHeader></DashboardHeader>
+        {/* <Header style={{ padding: 0 }} /> */}
         <Content style={{ margin: "0px 0px 0" }}>
           <div
             className="min-h-screen bg-[#1a2c52]"

@@ -1,3 +1,4 @@
+import FloatingScrollToTopButton from "../../components/ui/FloatButton";
 import AboutUs from "./AboutUs";
 import Banner from "./Banner";
 import DonorTestimonials from "./DonorTestimonials";
@@ -9,6 +10,7 @@ import Volunteers from "./volunteer/Volunteer";
 const Home = () => {
   return (
     <div>
+      <FloatingScrollToTopButton></FloatingScrollToTopButton>
       <Banner></Banner>
       <OngoingCampain></OngoingCampain>
       <AboutUs></AboutUs>
