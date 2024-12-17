@@ -1,12 +1,12 @@
 import Lottie from "lottie-react";
-import { useLeaderboardQuery } from "../redux/features/users/userManagement.api";
+import { useDonationsQuery } from "../redux/features/users/userManagement.api";
 import { GiQueenCrown } from "react-icons/gi";
 import spinner from "../assets/loading.json";
 import { TSupply } from "../types";
 import { Table } from "antd";
 
 const LeaderBoard = () => {
-  const { data, isLoading } = useLeaderboardQuery("");
+  const { data, isLoading } = useDonationsQuery("");
   const tableData = data?.leaderboard.map(
     ({ _id, name, totalAmount, contactNumber }: TSupply, index: number) => ({
       index: index + 1,
