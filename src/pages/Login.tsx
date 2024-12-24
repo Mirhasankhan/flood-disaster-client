@@ -50,6 +50,7 @@ const Login = () => {
           <h1 className="text-xl text-white md:text-3xl font-semibold  py-4 ">
             Log Into Your Account
           </h1>
+
           <Row justify="center">
             <Col span={24}>
               <PHForm onSubmit={onSubmit}>
@@ -97,7 +98,11 @@ const Login = () => {
             </h1>
           </div>
         </div>
-        <div className="w-full md:block hidden">
+        <div className="relative  w-full md:block hidden">
+          <div className="absolute text-3xl bottom-12 left-2">
+            <h1>Email: enamul@gmail.com</h1>
+            <p>Password: 123456</p>
+          </div>
           <img className="rounded-r-lg" src={imgs} alt="" />
         </div>
       </div>
