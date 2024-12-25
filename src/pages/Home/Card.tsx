@@ -38,7 +38,7 @@ const Card = ({ campain }: TSupplyCardProps) => {
           showInfo={false}
         />
         <Link to={`/campains/${_id}`} state={{ supply: campain }}>
-          <button className="p-2 mt-2 rounded-md bg-[#ffa415] text-white w-full border text-xl">
+          <button className="p-2 mt-2 rounded-md bg-[#2ec4b6] font-semibold text-white w-full border text-xl">
             Donate
           </button>
         </Link>

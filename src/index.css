@@ -7,5 +7,5 @@ body {
 }
 
 .main-button {
-  @apply bg-blue-600 mt-8 text-white py-2 px-6 md:px-8 text-xl mr-2 rounded-md font-medium;
+  @apply bg-[#2ec4b6]  mt-8 text-white py-2 px-6 md:px-8 text-xl mr-2 rounded-md font-medium;
 }

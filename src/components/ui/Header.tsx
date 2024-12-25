@@ -51,19 +51,19 @@ const Header = () => {
           <div className="md:flex gap-4 hidden items-center">
             <NavLink
               to="campains"
-              className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+              className="hover:text-green-500 hover:border-green-500 p-2 font-semibold"
             >
               Campains
             </NavLink>
             <Link
               to="/leaderboard"
-              className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+              className="hover:text-green-500 hover:border-green-500 p-2 font-semibold"
             >
               Best Donors
             </Link>
             <Link
               to="/about-us"
-              className="hover:text-green-500 hover:border-b hover:border-green-500 p-2 font-semibold"
+              className="hover:text-green-500  hover:border-green-500 p-2 font-semibold"
             >
               About Us
             </Link>

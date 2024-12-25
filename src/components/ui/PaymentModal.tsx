@@ -152,7 +152,7 @@ const PaymentModal = ({ campain }: TSupplyCardProps) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 font-semibold text-white py-2 rounded hover:bg-blue-600"
+            className="w-full bg-[#2ec4b6]  font-semibold text-white py-2 rounded hover:bg-blue-600"
           >
             Donate
           </button>

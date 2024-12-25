@@ -1,15 +1,14 @@
-import AdminDashboard from "../pages/admin/AdminDashboard";
 import CampainDetails from "../pages/admin/CampainDetails";
 import AddCampain from "../pages/admin/AddCampain";
 import AllNews from "../pages/admin/AllNews";
-import FinancialStats from "../pages/admin/FinancialStats";
 import AddNews from "../pages/admin/AddNews";
+import DonorDashboard from "../pages/donor/DonorDashboard";
 
 export const adminPaths = [
   {
     name: "Insight",
     path: "insight",
-    element: <AdminDashboard></AdminDashboard>,
+    element: <DonorDashboard></DonorDashboard>,
   },
   {
     name: "Campains",
@@ -20,11 +19,6 @@ export const adminPaths = [
     name: "News",
     path: "news",
     element: <AllNews></AllNews>,
-  },
-  {
-    name: "Finalcial Stats",
-    path: "financial-stats",
-    element: <FinancialStats></FinancialStats>,
   },
   {
     name: "Add Campain",

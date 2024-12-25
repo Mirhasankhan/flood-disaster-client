@@ -48,7 +48,7 @@ const OngoingCampain = () => {
         style={{ y: yValue, opacity: opacityValue, transition: "2s" }}
         className="grid grid-cols-1 md:grid-cols-3 gap-8"
       >
-        {data?.slice(0, 3).map((supply: TSupply) => (
+        {data?.slice(3, 6).map((supply: TSupply) => (
           <Card campain={supply} key={supply._id}></Card>
         ))}
       </motion.div>

@@ -39,12 +39,18 @@ const Login = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] h-full">
-      <Link to="/" className="py-8 pl-8 flex items-center gap-2">
-        <img className="h-12 w-12 rounded-full" src={logo} alt="" />
-        <p className="text-white text-3xl font-bold">
-          Altruist <span className="text-blue-600">Hub</span>
-        </p>
-      </Link>
+      <div className="flex justify-between py-8 px-8">
+        <Link to="/" className=" flex items-center gap-2">
+          <img className="h-12 w-12 rounded-full" src={logo} alt="" />
+          <p className="text-white text-3xl font-bold">
+            Altruist <span className="text-blue-600">Hub</span>
+          </p>
+        </Link>
+        <div className="text-white text-xl">
+          <h1>User:- Email: enamul@gmail.com, Password: 123456</h1>
+          <h1>Admin:-Email: newAdmin@gmail.com, Password: 123456</h1>
+        </div>
+      </div>
       <div className="flex py-6 w-3/4 mx-auto items-center">
         <div className="rounded-l-lg shadow-xl p-6  w-full  bg-white bg-opacity-10">
           <h1 className="text-xl text-white md:text-3xl font-semibold  py-4 ">
@@ -98,11 +104,7 @@ const Login = () => {
             </h1>
           </div>
         </div>
-        <div className="relative  w-full md:block hidden">
-          <div className="absolute text-3xl bottom-12 left-2">
-            <h1>Email: enamul@gmail.com</h1>
-            <p>Password: 123456</p>
-          </div>
+        <div className="w-full md:block hidden">
           <img className="rounded-r-lg" src={imgs} alt="" />
         </div>
       </div>
